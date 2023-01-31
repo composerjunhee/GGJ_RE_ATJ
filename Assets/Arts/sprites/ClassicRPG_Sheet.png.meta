@@ -2824,7 +2824,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      ClassicRPG_Sheet_57: -210552929
+      ClassicRPG_Sheet_2: 1523907180
       ClassicRPG_Sheet_17: 1307709436
       ClassicRPG_Sheet_20: 1598868506
       ClassicRPG_Sheet_98: 850212358
@@ -2951,8 +2951,8 @@ TextureImporter:
       ClassicRPG_Sheet_51: -415507496
       ClassicRPG_Sheet_94: 457868023
       ClassicRPG_Sheet_45: -1233230203
-      ClassicRPG_Sheet_2: 1523907180
       ClassicRPG_Sheet_30: 2037211419
+      ClassicRPG_Sheet_57: -210552929
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
