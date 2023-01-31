@@ -218,6 +218,7 @@ GameObject:
   - component: {fileID: 1157562846}
   - component: {fileID: 1157562848}
   - component: {fileID: 1157562847}
+  - component: {fileID: 1157562849}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -254,7 +255,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.023642242}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -265,7 +266,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1.8984026}
+  m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
 --- !u!50 &1157562848
 Rigidbody2D:
@@ -288,6 +289,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1157562849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157562845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a47c6a0910d146a25b9d21d23cc0913e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 2074091424}
 --- !u!1 &1198332124
 GameObject:
   m_ObjectHideFlags: 0
