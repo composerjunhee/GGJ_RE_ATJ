@@ -14,4 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tiles:
   - {fileID: 11400000, guid: 019730452656d894f8f3080d99391dc0, type: 2}
+  - {fileID: 11400000, guid: 019730452656d894f8f3080d99391dc0, type: 2}
+  - {fileID: 11400000, guid: 019730452656d894f8f3080d99391dc0, type: 2}
+  - {fileID: 11400000, guid: 69f8697684498b44f821262ef7818e97, type: 2}
+  - {fileID: 11400000, guid: 69f8697684498b44f821262ef7818e97, type: 2}
+  - {fileID: 11400000, guid: 019730452656d894f8f3080d99391dc0, type: 2}
+  - {fileID: 11400000, guid: 8ad70c356e55ac448a66bf5ce8ea61e0, type: 2}
+  - {fileID: 11400000, guid: 1ea2f3b8c2045004dbdd2581e18ba2fd, type: 2}
+  - {fileID: 11400000, guid: 7fadbcaf988cc5f4194a6457a64bd9f9, type: 2}
+  - {fileID: 11400000, guid: 53b146a3a650a964fb5b19e3fee62ac4, type: 2}
+  - {fileID: 11400000, guid: 546b82415dad16c4e828ceacb9c0b253, type: 2}
+  - {fileID: 11400000, guid: 56607db9ba0ff344f950194c294b893a, type: 2}
+  - {fileID: 11400000, guid: 18eb2a3a2c2d97847ab22ea4b6f93f11, type: 2}
   digable: 1
+  dig_strength: 5

@@ -9,7 +9,7 @@ public class tile_data : ScriptableObject
     // Start is called before the first frame update
 	public TileBase [] tiles;
 
-	public int	digable;
+	public int	digable, dig_strength;
 
 
     void Start()
