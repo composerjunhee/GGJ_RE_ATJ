@@ -19,6 +19,7 @@ public class PlayerMove : MonoBehaviour
         // Get movement direction (-1 left, 1 right)
         float inputRawX = Input.GetAxisRaw("Horizontal");
         float inputRawY = Input.GetAxisRaw("Vertical");
+
         if (inputRawX != 0.0f)
         {
             // Move player horizontaly
@@ -26,7 +27,7 @@ public class PlayerMove : MonoBehaviour
         }
 		if (inputRawY != 0.0f)
         {
-            // Move player horizontaly
+            // Move player verticaly
             transform.Translate(new Vector2(0, inputRawY * Time.deltaTime * 6));
         }
     }

@@ -9,14 +9,14 @@ public class MapManager : MonoBehaviour
 	private Tilemap map;
 
 	[SerializeField]
-	private List <tile_data> tileDatas;
+	private List<TileData> tileDatas;
 
-	private Dictionary <TileBase, tile_data> dataFromTiles;
+	private Dictionary<TileBase, TileData> dataFromTiles;
     // Start is called before the first frame update
 
 	private void awake()
 	{
-		dataFromTiles = new Dictionary <TileBase, tile_data>();
+		dataFromTiles = new Dictionary <TileBase, TileData>();
 		foreach(var tileData in tileDatas)
 		{
 			foreach(var tile in tileData.tiles)
@@ -39,7 +39,8 @@ public class MapManager : MonoBehaviour
 			Vector3Int gridPosition = map.WorldToCell(mouse_position);
 
 			TileBase clickedTile = map.GetTile(gridPosition);
-			//int	digable = dataFromTiles[clickedTile].digable;
+
+			print("Tile digability is: " + clickedTile.GetHashCode());
 		}
     }
 }
