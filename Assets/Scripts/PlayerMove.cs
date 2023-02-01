@@ -1,40 +1,63 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class PlayerMove : MonoBehaviour
 {
-    private Rigidbody2D	m_body2d;
-    private Vector2		positions;
-    // Start is called before the first frame update
+    private Rigidbody2D rb;
+    private BoxCollider2D boxCollider2D;
+    private float horizontal;
+    public float speed = 7f;
+    public float jumpingPower = 8f;
+    private bool isFacingRight = true;
 
-    private SpriteRenderer  spriteRenderer;
+    public Tilemap		map;
+	private Vector3Int	cellPosition;
+	private TileBase	tile;
+
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+		rb = GetComponent<Rigidbody2D>();
+        boxCollider2D = GetComponent<BoxCollider2D>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-		positions = transform.position;
-        // Get movement direction (-1 left, 1 right)
-        float inputRawX = Input.GetAxisRaw("Horizontal");
-        float inputRawY = Input.GetAxisRaw("Vertical");
+        // Debug.Log(boxCollider2D.bounds.center - new Vector3(0, boxCollider2D.bounds.extents.y, 0));
+        if (!isFacingRight && horizontal > 0f)
+            Flip();
+        else if (isFacingRight && horizontal < 0f)
+            Flip();
+        // if (Input.GetButtonDown("Jump") && !IsGrounded())
+        //     rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
+        if (Input.GetButtonDown("Jump") && IsGrounded())
+            rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
 
-        if (inputRawX != 0.0f)
-        {
-            if (inputRawX == -1)
-                spriteRenderer.flipX = true;
-            else
-                spriteRenderer.flipX = false;
-            // Move player horizontaly
-            transform.Translate(new Vector2(inputRawX * Time.deltaTime * 6, 0));
-        }
-		if (inputRawY != 0.0f)
-        {
-            // Move player verticaly
-            transform.Translate(new Vector2(0, inputRawY * Time.deltaTime * 6));
-        }
+    }
+
+    private void FixedUpdate()
+    {
+        horizontal = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+    }
+
+    private bool IsGrounded()
+    {
+        cellPosition = map.WorldToCell(boxCollider2D.bounds.center - new Vector3(0, boxCollider2D.bounds.extents.y + 0.1f, 0));
+        
+        tile = map.GetTile(cellPosition);
+        if (tile)
+            return (true);
+        return false;
+    }
+
+    private void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        Vector3 localScale = transform.localScale;
+        localScale.x *= -1f;
+        transform.localScale = localScale;
     }
 }
+
