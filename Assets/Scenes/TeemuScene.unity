@@ -14769,6 +14769,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6482338533880708480, guid: 79dee4fd02a6c444da472a7858b4fe46, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.9284973
+      objectReference: {fileID: 0}
     - target: {fileID: 6482338534549135744, guid: 79dee4fd02a6c444da472a7858b4fe46, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -15310,7 +15314,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.25659418, y: -0.6964712}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -15321,7 +15325,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.54, y: 5.57}
+  m_Size: {x: 2.0268116, y: 3.7371788}
   m_EdgeRadius: 0
 --- !u!50 &1870751622
 Rigidbody2D:
