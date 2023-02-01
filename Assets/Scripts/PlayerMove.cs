@@ -7,9 +7,11 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D	m_body2d;
     private Vector2		positions;
     // Start is called before the first frame update
+
+    private SpriteRenderer  spriteRenderer;
     void Start()
     {
-
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,10 @@ public class PlayerMove : MonoBehaviour
 
         if (inputRawX != 0.0f)
         {
+            if (inputRawX == -1)
+                spriteRenderer.flipX = true;
+            else
+                spriteRenderer.flipX = false;
             // Move player horizontaly
             transform.Translate(new Vector2(inputRawX * Time.deltaTime * 6, 0));
         }
