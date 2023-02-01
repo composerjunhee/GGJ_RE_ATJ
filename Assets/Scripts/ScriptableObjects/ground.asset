@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0efc41f95dab404ea61d52f63f807f7, type: 3}
+  m_Script: {fileID: 11500000, guid: a3f2f0a7f7c71af438f6589683c48bd1, type: 3}
   m_Name: Ground
   m_EditorClassIdentifier: 
   tiles:
-  - {fileID: 11400000, guid: 4ff0d9435efcdec47b6e283c0c7fefb0, type: 2}
-  - {fileID: 11400000, guid: f079274e645b37a4390f2a1619eb5054, type: 2}
+  - {fileID: 11400000, guid: 8ad70c356e55ac448a66bf5ce8ea61e0, type: 2}
+  - {fileID: 11400000, guid: 019730452656d894f8f3080d99391dc0, type: 2}
+  - {fileID: 11400000, guid: 69f8697684498b44f821262ef7818e97, type: 2}
   digable: 1
-  dig_strength: 5
+  strenght: 5

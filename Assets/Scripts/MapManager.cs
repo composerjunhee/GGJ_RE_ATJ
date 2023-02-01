@@ -9,14 +9,14 @@ public class MapManager : MonoBehaviour
 	private Tilemap map;
 
 	[SerializeField]
-	private List<TileData> tileDatas;
+	private List<DataTile> tileDatas;
 
-	private Dictionary<TileBase, TileData> dataFromTiles;
+	private Dictionary<TileBase, DataTile> dataFromTiles;
     // Start is called before the first frame update
 
-	private void awake()
+	private void Awake()
 	{
-		dataFromTiles = new Dictionary <TileBase, TileData>();
+		dataFromTiles = new Dictionary<TileBase, DataTile>();
 		foreach(var tileData in tileDatas)
 		{
 			foreach(var tile in tileData.tiles)
@@ -31,7 +31,7 @@ public class MapManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
 		{
@@ -39,8 +39,17 @@ public class MapManager : MonoBehaviour
 			Vector3Int gridPosition = map.WorldToCell(mouse_position);
 
 			TileBase clickedTile = map.GetTile(gridPosition);
-			int	digable = dataFromTiles[clickedTile].digable;
-			Debug.Log("Tile digability is: " + digable);
+			bool	digable = dataFromTiles[clickedTile].digable;
+			print("tile "+ clickedTile.GetHashCode() + "as " + dataFromTiles[clickedTile].digable + "strenght still");
+			if (digable)
+			{
+				dataFromTiles[clickedTile].strenght--;
+				if (dataFromTiles[clickedTile].strenght <= 0)
+				{
+					map.SetTile(gridPosition, null);
+				}
+			}
+			
 		}
     }
 }
