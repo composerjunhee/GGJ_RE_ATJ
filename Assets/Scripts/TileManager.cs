@@ -8,21 +8,30 @@ public class TileManager : MonoBehaviour
 	private Tilemap map;
 	private BoundsInt bounds;
 	private Dictionary<Vector3Int, int> strengthTiles = new Dictionary<Vector3Int, int>();
-    private TileBase[] allTiles;
-	/*private	void	Get_tiles()
+	public Dictionary<int, Vector3Int> tiles;
+	int	totalTiles;
+	[SerializeField]
+	private TileBase replaceTile;
+	private TileBase originalTile;
+	private int GetWorldTiles () 
 	{
-		bounds = map.cellBounds;
-		allTiles = map.GetTilesBlock(bounds);
-		for (int x = 0; x < bounds.size.x; x++)
+		int i = 0;
+        tiles = new Dictionary<int, Vector3Int>();
+		foreach (Vector3Int pos in map.cellBounds.allPositionsWithin)
 		{
-			for (int y = 0; y < bounds.size.y; y++)
+			var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
+
+			if (!map.HasTile(localPlace))
 			{
-				TileBase tile = allTiles[x + y * bounds.size.x];
-				print("tile name: " + tile.name);
+				i++;
+				continue;
 			}
+			tiles.Add(i, localPlace);
+			i++;
 		}
-		
-	}*/
+		return (i);
+	}
+
 	public void	change_strenght(Vector3Int gridPosition)
 	{
 		if (!strengthTiles.ContainsKey(gridPosition))
@@ -40,19 +49,41 @@ public class TileManager : MonoBehaviour
 		}
 	}
 
-	/*private void	ShrinkTile()
+	private void ShrinkTiles()
 	{
-		int	x = bounds.size.x;
-		int	y = bounds.size.y;
+		int	i  = Random.Range(0, totalTiles);
+		Vector3Int localPlace;
+		if (tiles.ContainsKey(i))
+		{
+			localPlace = tiles[i];
+			if (map.HasTile(localPlace))
+			{
+				originalTile = map.GetTile(localPlace);
+				var tileTransform = Matrix4x4.Translate(new Vector3(0.03f, 0.03f, 0)) * 
+									Matrix4x4.Rotate(Quaternion.Euler(0, 0, Random.Range(-10f, 10f)));
+				var changeData = new TileChangeData
+				{
+					position = localPlace,
+					tile = replaceTile,
+					color = Color.white,
+					transform = tileTransform
+				};
+				map.SetTile(changeData, false);
+			}
+		}
+		
+	}
 
-
-		print("first tile is: " + allTiles[0]);
-	}*/
-
-	/*private void Awake()
+	private void ResetTile(Vector3Int tilePosition)
 	{
-		Get_tiles();
-	}*/
+
+	}
+
+	private void Awake()
+	{
+		totalTiles = GetWorldTiles();
+	}
+
 	private void	Update()
 	{
 		if (Input.GetMouseButtonDown(0))
@@ -60,7 +91,7 @@ public class TileManager : MonoBehaviour
 			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			Vector3Int gridPosition = map.WorldToCell(mousePosition);
 			change_strenght(gridPosition);
-			//ShrinkTile();
+			ShrinkTiles();
 		}
 	}
     

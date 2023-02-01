@@ -14284,6 +14284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 2074091424}
+  replaceTile: {fileID: 11400000, guid: 86a99c31b19a7bd408800527ae4af993, type: 2}
 --- !u!1 &1077597629
 GameObject:
   m_ObjectHideFlags: 0
