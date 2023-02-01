@@ -16,7 +16,9 @@ public class pickup : MonoBehaviour
                 {
                     Instantiate(slotItem, inven.slots[i].slotObj.transform, false);
                     inven.slots[i].isEmpty = false;
+                    Debug.Log("gameObject: " + this.gameObject);
                     Destroy(this.gameObject);
+
                     break;
                 }
             }
