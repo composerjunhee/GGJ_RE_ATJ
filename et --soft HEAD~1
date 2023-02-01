@@ -1,0 +1,279 @@
+[33mcommit 566f227b8702a8aeae5628b17867d1c71003d5b8[m[33m ([m[1;36mHEAD -> [m[1;32mandrferr-dev[m[33m, [m[1;31morigin/andrferr-dev[m[33m)[m
+Merge: 43f01c0 2ca7148
+Author: affmde <affmde@hotmail.com>
+Date:   Wed Feb 1 08:44:11 2023 +0200
+
+    Merge branch 'main' of https://github.com/composerjunhee/GGJ_RE_ATJ into andrferr-dev
+
+[33mcommit 43f01c09ffad1fdbd0b5aa31bfbafa8b067ea849[m
+Author: affmde <affmde@hotmail.com>
+Date:   Wed Feb 1 08:28:54 2023 +0200
+
+    assets
+
+[33mcommit 2ca71489ea4b49346fb632c63459ca0e8c937b50[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Kimpozer <86662547+composerjunhee@users.noreply.github.com>
+Date:   Wed Feb 1 00:17:50 2023 +0200
+
+    Inventory and ItemPickup
+    
+    Inventory, Pickup, add Item
+
+[33mcommit 5bfc87863ca5247871a70e99f03e64565a91420a[m
+Author: Kimpozer <86662547+composerjunhee@users.noreply.github.com>
+Date:   Tue Jan 31 23:15:52 2023 +0200
+
+    mining animation art added
+
+[33mcommit 543dcc499b39032ee1b9dad60094f76f10867f3d[m
+Author: Kimpozer <86662547+composerjunhee@users.noreply.github.com>
+Date:   Tue Jan 31 22:57:54 2023 +0200
+
+    Man_Idle
+    
+    Stand Position
+
+[33mcommit 88fba946db276ef3a32b5ab2dfc0f9172ac9c233[m
+Author: Kimpozer <86662547+composerjunhee@users.noreply.github.com>
+Date:   Tue Jan 31 22:25:55 2023 +0200
+
+    Revert "Fix_Pickupscript"
+    
+    This reverts commit b4f7059927b4cb441cc6f83872e948d895286c1c.
+
+[33mcommit 724a3cb1b076a9ee156307af13aa7ade453b8274[m
+Author: Kimpozer <86662547+composerjunhee@users.noreply.github.com>
+Date:   Tue Jan 31 22:25:47 2023 +0200
+
+    Revert "Merge branch 'main' of https://github.com/composerjunhee/GGJ_RE_ATJ"
+    
+    This reverts commit d64b6b351f1705761aaf080fb7a72e8b8a0f77fa, reversing
+    changes made to b4f7059927b4cb441cc6f83872e948d895286c1c.
+
+[33mcommit d64b6b351f1705761aaf080fb7a72e8b8a0f77fa[m
+Merge: b4f7059 79e2464
+Author: Kimpozer <86662547+composerjunhee@users.noreply.github.com>
+Date:   Tue Jan 31 22:22:28 2023 +0200
+
+    Merge branch 'main' of https://github.com/composerjunhee/GGJ_RE_ATJ
+
+[33mcommit b4f7059927b4cb441cc6f83872e948d895286c1c[m
+Author: Kimpozer <86662547+composerjunhee@users.noreply.github.com>
+Date:   Tue Jan 31 22:21:41 2023 +0200
+
+    Fix_Pickupscript
+    
+    Completed
+
+[33mcommit 79e2464b5ef44efd67891b441e2ace97fbe50cc3[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 22:13:55 2023 +0200
+
+    turned on the mining script for the player
+
+[33mcommit 6ef32ca967d39e7c2fa979e0a77fb08d3b43cb81[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 22:11:59 2023 +0200
+
+    changed the player
+
+[33mcommit 33c41891649615f55ea1d78daf32656724eacaa1[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 22:11:25 2023 +0200
+
+    made changes to PlayerMove script
+
+[33mcommit 1a1151ddee1cbd9631dca9fe8a13cc790e095cd3[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 22:10:34 2023 +0200
+
+    added player with basic left/right animation
+
+[33mcommit d14c1f042d2f941237a06266ee0d761473ddcde5[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 21:12:42 2023 +0200
+
+    root prefab added
+
+[33mcommit f5621678231625dc155eae098cf9171650abafde[m[33m ([m[1;32mmain[m[33m)[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 19:20:15 2023 +0200
+
+    new background added and also borders to the map
+
+[33mcommit 8d26f568e4d4cb65c83d8fffcc0ffbe3bc931a03[m
+Merge: a36aabd ffd2546
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 17:09:31 2023 +0200
+
+    Merge branch 'main' of https://github.com/composerjunhee/GGJ_RE_ATJ into andrferr-dev
+
+[33mcommit a36aabd1b00d98e6bf4482a7fd87f03c6f725fc4[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 17:09:09 2023 +0200
+
+    scriptable objects
+
+[33mcommit ffd25464d5561dcd6c8115db4cbf7bb99546003f[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 17:04:42 2023 +0200
+
+    changed playable character
+
+[33mcommit 14519c61be1ae6458f07ddad532aa7a2da11da0c[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 17:03:39 2023 +0200
+
+    changed to LateUpdate
+
+[33mcommit 1188e615acd8814f49f4fddb086056d8a0b57f2c[m
+Author: Kimpozer <composerjunhee@gmail.com>
+Date:   Tue Jan 31 16:51:54 2023 +0200
+
+    character
+    
+    main
+
+[33mcommit 234d3fd9384a639bb11279d26085b28343d0c926[m
+Merge: baf1e89 8c27f9f
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 16:35:39 2023 +0200
+
+    Merge branch 'main' of https://github.com/composerjunhee/GGJ_RE_ATJ
+
+[33mcommit 8c27f9f0f3705a1e9e0d7fccb0e08ed618dd7233[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 16:34:33 2023 +0200
+
+    basic camera move added
+
+[33mcommit baf1e89e6769750fe409a9b637619eabbef1ee89[m
+Merge: 10b1595 9a7164e
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 16:33:24 2023 +0200
+
+    Merge branch 'main' of https://github.com/composerjunhee/GGJ_RE_ATJ
+
+[33mcommit 10b1595446d0410c8c8b9a68d08591000fbeecfb[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 16:32:51 2023 +0200
+
+    Added very basic movement
+
+[33mcommit 9a7164e448df57c75b0e5749c352dcef84c46d02[m
+Author: Kimpozer <composerjunhee@gmail.com>
+Date:   Tue Jan 31 16:25:13 2023 +0200
+
+    Sprite folder move
+    
+    To the Arts
+
+[33mcommit ebccd74a3330711ef7e88987d36da312541df4ea[m
+Author: Kimpozer <composerjunhee@gmail.com>
+Date:   Tue Jan 31 15:39:25 2023 +0200
+
+    Scene Added
+    
+    Game Over Scene Added
+
+[33mcommit b9a6ea0f0227aa532e51b2abf6d7dc6a44a2c2a5[m
+Merge: 5fa757b 73b1ceb
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 15:36:52 2023 +0200
+
+    Merge branch 'andrferr-dev'
+
+[33mcommit 73b1ceb76d4b5702a781cac21147351701751a4a[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 15:34:40 2023 +0200
+
+    background, tree and tilemaps added
+
+[33mcommit 5fa757bf44e68fa58852983693385c1cb41d3cc5[m
+Merge: 563c97d 4827e44
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 15:30:45 2023 +0200
+
+    Merge branch 'main' of https://github.com/composerjunhee/GGJ_RE_ATJ
+
+[33mcommit 563c97d524085b1c996996bed8bc391b12503cf7[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 15:29:16 2023 +0200
+
+    started PlayerMove script
+
+[33mcommit ab3ace45837059c7575581cb3158b449e99e6d54[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 15:27:14 2023 +0200
+
+    Made changes to player
+
+[33mcommit 1e81f1c78caef0aeac858c1d7e1f20ba81c22680[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 15:26:14 2023 +0200
+
+    Made MineBlock to work with Tiles
+
+[33mcommit 4827e44388d8032bf78d3b779b7dc93b9d494287[m
+Author: Kimpozer <composerjunhee@gmail.com>
+Date:   Tue Jan 31 14:45:39 2023 +0200
+
+    SFX
+    
+    Add Button Sounds
+
+[33mcommit 9fe502d92aafaa547fe9d7d059f88f9a02eaa6bd[m
+Author: Kimpozer <composerjunhee@gmail.com>
+Date:   Tue Jan 31 14:24:30 2023 +0200
+
+    Audio Component in Main
+    
+    Main Menu audio added
+
+[33mcommit e3b26e8362a1465ebabc38e1f4299f1b8611066f[m
+Author: Kimpozer <composerjunhee@gmail.com>
+Date:   Tue Jan 31 14:17:47 2023 +0200
+
+    Start Button
+    
+    Scene Change
+    From Menu to Main Game
+
+[33mcommit 13948bc4d2fdec266efaca3891c13d8cc59aad48[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 13:59:09 2023 +0200
+
+    opened background tilemap added
+
+[33mcommit 889a2e0cef5d6e6c73638d65f65094be9f3496ad[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 13:42:03 2023 +0200
+
+    tilemaps started
+
+[33mcommit 92c86216b063efec4694214c12a27f1b8cd83d83[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 13:22:11 2023 +0200
+
+    first commit
+
+[33mcommit 6f80faf2a103a75a6e9814455fdf8d46d295d3db[m
+Merge: 9427607 783b4cd
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 13:21:09 2023 +0200
+
+    try merge one
+
+[33mcommit 783b4cd01a029c87c3c40ccd7a3f0c3447f5de96[m
+Author: Teemu Spoof <steemum@hotmail.com>
+Date:   Tue Jan 31 13:18:53 2023 +0200
+
+    added PrototypeHero and MineBlock script
+
+[33mcommit 942760731af088d53b5c21cabe00db0a13778a54[m
+Author: affmde <affmde@hotmail.com>
+Date:   Tue Jan 31 12:33:20 2023 +0200
+
+    initial branch commit
+
+[33mcommit b979a4cf6ae7f78fb47e9ec31cd614a
