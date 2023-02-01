@@ -14337,8 +14337,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 481.69745, y: 235.61717}
-  m_SizeDelta: {x: 33.4041, y: 405.8064}
+  m_AnchoredPosition: {x: 480.59985, y: 179.63992}
+  m_SizeDelta: {x: 31.2089, y: 293.8519}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822449024
 MonoBehaviour:
@@ -14950,6 +14950,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6482338533880708480, guid: 79dee4fd02a6c444da472a7858b4fe46, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.9284973
+      objectReference: {fileID: 0}
     - target: {fileID: 6482338534549135744, guid: 79dee4fd02a6c444da472a7858b4fe46, type: 3}
       propertyPath: m_Name
       value: Canvas
