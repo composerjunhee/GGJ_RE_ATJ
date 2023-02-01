@@ -15,11 +15,13 @@ public class MineBlock : MonoBehaviour
 	private float		mineDirectionY;
     private Animator	animator;
 	private bool		mining = false;
+    private TileManager  tileManager;
 
     // Start is called before the first frame update
     void Start()
     {
 		animator = GetComponent<Animator>();
+        tileManager = GetComponent<TileManager>();
     }
 
 	public void finnishMining()
@@ -43,7 +45,7 @@ public class MineBlock : MonoBehaviour
         if (tile != null)
         {
             Debug.Log("tile: " + tile);
-            map.SetTile(cellPosition, null);
+            tileManager.change_strenght(cellPosition);
         }
 		animator.SetBool("Mining", mining);
 	}
