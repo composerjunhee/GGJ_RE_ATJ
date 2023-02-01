@@ -39,8 +39,8 @@ public class MapManager : MonoBehaviour
 			Vector3Int gridPosition = map.WorldToCell(mouse_position);
 
 			TileBase clickedTile = map.GetTile(gridPosition);
-
-			print("Tile digability is: " + clickedTile.GetHashCode());
+			int	digable = dataFromTiles[clickedTile].digable;
+			Debug.Log("Tile digability is: " + digable);
 		}
     }
 }
