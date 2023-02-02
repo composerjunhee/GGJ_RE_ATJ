@@ -45,10 +45,16 @@ public class MineBlock : MonoBehaviour
         // If there is a tile mine it off
         if (tile != null)
         {
-            Debug.Log("tile: " + tile);
+            Debug.Log("Mined: " + tile);
             tileManager.change_strenght(cellPosition);
         }
-		animator.SetBool("Mining", mining);
+		animator.SetBool("Mining", false);
+	}
+
+	private void CancelMining()
+	{
+		animator.SetBool("Mining", false);
+		mining = false;
 	}
 
     // Update is called once per frame
@@ -60,7 +66,7 @@ public class MineBlock : MonoBehaviour
             inputRawX = Input.GetAxisRaw("Horizontal");
             // Get movement direction (-1 down, 1 up)
             inputRawY = Input.GetAxisRaw("Vertical");
-            if (inputRawX != 0.0f)
+			if (inputRawX != 0.0f)
             {
                 mineDirectionX = inputRawX;
                 mineDirectionY = 0f;
@@ -73,9 +79,9 @@ public class MineBlock : MonoBehaviour
         }
         if (Input.GetButton("Fire1") && mining == false)
         {
-			Debug.Log("Mining...");
+			Debug.Log("Started mining...");
 			mining = true;
-			animator.SetBool("Mining", mining);
+			animator.SetBool("Mining", true);
         }
     }
 }
