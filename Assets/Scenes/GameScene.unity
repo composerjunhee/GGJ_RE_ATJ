@@ -1582,6 +1582,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grid
       objectReference: {fileID: 0}
+    - target: {fileID: 5355496640454255858, guid: 023e3661fd0c4954e8aeac90098a06d3, type: 3}
+      propertyPath: m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5355496640454255859, guid: 023e3661fd0c4954e8aeac90098a06d3, type: 3}
+      propertyPath: m_UsedByComposite
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 023e3661fd0c4954e8aeac90098a06d3, type: 3}
 --- !u!1839735485 &2008242034 stripped
