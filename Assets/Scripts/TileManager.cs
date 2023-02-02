@@ -65,7 +65,7 @@ public class TileManager : MonoBehaviour
 	public void	change_strenght(Vector3Int gridPosition)
 	{
 		if (!strengthTiles.ContainsKey(gridPosition))
-			strengthTiles.Add(gridPosition, Random.Range(3, 7));
+			strengthTiles.Add(gridPosition, Random.Range(1, 3));
 
 		int	new_strength = strengthTiles[gridPosition] - 1;
 		if (new_strength <= 0)
