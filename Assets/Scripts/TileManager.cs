@@ -11,11 +11,14 @@ public class TileManager : MonoBehaviour
 	public Dictionary<int, Vector3Int> tiles;
 	int	totalTiles;
 	[SerializeField]
-	private TileBase replaceTile;
-	private TileBase originalTile;
+	private TileBase	replaceTile;
+	private TileBase	originalTile;
+	[SerializeField]
+	private	TileBase	anim_worm;
 	Vector3Int localPlace;
 	private bool shaking = false;
 	private float time;
+	private bool animating = false;
 	private int GetWorldTiles () 
 	{
 		int i = 0;
@@ -90,21 +93,34 @@ public class TileManager : MonoBehaviour
 	private void HandleShaking()
 	{
 		int	timer = 2;
+		int	anim_time = 4;
 		if (!shaking)
 			ShrinkTiles();
 		if (shaking && time < timer)
 		{
 			time += Time.deltaTime;
 			TransforTile(localPlace, Random.Range(-10f, 10f));
+			animating = true;
 		}
-		if (shaking && time >= timer)
+		if (shaking && time >= timer && time < anim_time)
 		{
-			TransforTile(localPlace, 0);
+			time += Time.deltaTime;
+			if (animating)
+			{
+				TransforTile(localPlace, 0);
+				map.SetTile(localPlace, anim_worm);
+			}
+			animating = false;
+		}
+		if (shaking && time >= anim_time)
+		{
+			Debug.Log("Restart - time: " + time);
 			RestoreTile(originalTile, localPlace);
 			time = 0;
 			shaking = false;
+			animating = false;
 		}
-
+	
 	}
 
 	private void	Update()

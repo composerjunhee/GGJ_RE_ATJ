@@ -14285,6 +14285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   map: {fileID: 2074091424}
   replaceTile: {fileID: 11400000, guid: 1c0d9daefb0c39e4fab26292bd3f02d8, type: 2}
+  anim_worm: {fileID: 11400000, guid: 789ccf99a80ba464bb1c41bcf3bb5cfc, type: 2}
 --- !u!1 &1077597629
 GameObject:
   m_ObjectHideFlags: 0
