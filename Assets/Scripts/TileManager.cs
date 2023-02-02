@@ -87,16 +87,11 @@ public class TileManager : MonoBehaviour
 		totalTiles = GetWorldTiles();
 	}
 
-	private void	Update()
+	private void HandleShaking()
 	{
 		int	timer = 2;
-		if (Input.GetMouseButtonDown(0))
-		{
-			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			Vector3Int gridPosition = map.WorldToCell(mousePosition);
-			change_strenght(gridPosition);
+		if (!shaking)
 			ShrinkTiles();
-		}
 		if (shaking && time < timer)
 		{
 			time += Time.deltaTime;
@@ -109,6 +104,19 @@ public class TileManager : MonoBehaviour
 			time = 0;
 			shaking = false;
 		}
+
+	}
+
+	private void	Update()
+	{
+		if (Input.GetMouseButtonDown(0))
+		{
+			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+			Vector3Int gridPosition = map.WorldToCell(mousePosition);
+			change_strenght(gridPosition);
+			
+		}
+		HandleShaking();
 	}
     
 }
