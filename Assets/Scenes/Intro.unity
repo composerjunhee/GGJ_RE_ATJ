@@ -156,10 +156,10 @@ RectTransform:
   m_Father: {fileID: 794203487}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -5.3565, y: 51.4217}
-  m_SizeDelta: {x: 789.2869, y: 407.7545}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -0.000021935, y: -183.84995}
+  m_SizeDelta: {x: 800, y: 367.8479}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &247366823
 MonoBehaviour:
@@ -184,12 +184,12 @@ MonoBehaviour:
   m_text: "A long time ago, in a galaxy far, far, away...\n               A vast
     sea of stars serves as the backdrop for the main title. \n               War
     drums echo through the heavens as a rollup slowly crawls \n               into
-    infinity.\n\n                    It is a period of civil war. Rebel spaceships,
-    \n                    striking from a hidden base, have won their first \n                   
-    victory against the evil Galactic Empire.\n\n                    During the battle,
-    Rebel spies managed to steal \n                    secret plans to the Empire's
-    ultimate weapon, the \n                    Death Star, an armored space station
-    with enough \n                    power to destroy an entire planet."
+    infinity.\n               It is a period of civil war. Rebel spaceships, \n              
+    striking from a hidden base, have won their first \n               victory against
+    the evil Galactic Empire.\n\n               During the battle, Rebel spies managed
+    to steal \n               secret plans to the Empire's ultimate weapon, the \n              
+    Death Star, an armored space station with enough\n\t     power to destroy an
+    entire planet.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -838,8 +838,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: -206.74}
-  m_SizeDelta: {x: 318.3695, y: 97.1245}
+  m_AnchoredPosition: {x: -0.000020027, y: -164}
+  m_SizeDelta: {x: 311.9148, y: 97.1245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698617021
 MonoBehaviour:
