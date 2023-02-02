@@ -19,6 +19,12 @@ public class TileManager : MonoBehaviour
 	private bool shaking = false;
 	private float time;
 	private bool animating = false;
+	[SerializeField]
+	private int	percent = 80;
+	public	GameObject	wood;
+	public	GameObject	mineral;
+	public GameObject	water;
+	public GameObject	glue;
 	private int GetWorldTiles () 
 	{
 		int i = 0;
@@ -28,14 +34,32 @@ public class TileManager : MonoBehaviour
 			var localPlace = new Vector3Int(pos.x, pos.y, pos.z);
 
 			if (!map.HasTile(localPlace))
-			{
-				i++;
 				continue;
-			}
 			tiles.Add(i, localPlace);
 			i++;
 		}
 		return (i);
+	}
+
+	private void	GetReward(Vector3Int gridPosition)
+	{
+		int	rand = Random.Range(0, 99);
+		if (rand < percent)
+		{
+			GameObject reward;
+			int	randItem = Random.Range(0,99);
+			if (randItem < 25)
+				reward = Instantiate(wood, gridPosition, Quaternion.Euler(0, 0, 0));
+			else if (randItem < 50)
+				reward = Instantiate(water, gridPosition, Quaternion.Euler(0, 0, 0));
+			else if (randItem < 75)
+				reward = Instantiate(mineral, gridPosition, Quaternion.Euler(0, 0, 0));
+			else
+				reward = Instantiate(water, gridPosition, Quaternion.Euler(0, 0, 0));
+			//Rigidbody2D rBody = reward.AddComponent<Rigidbody2D>();
+			//rBody.AddForce(Vector2.up * 3);
+			print("rand: "+ rand + " randItem: " + randItem);
+		}
 	}
 
 	public void	change_strenght(Vector3Int gridPosition)
@@ -48,6 +72,7 @@ public class TileManager : MonoBehaviour
 		{
 			strengthTiles.Remove(gridPosition);
 			map.SetTile(gridPosition, null);
+			GetReward(gridPosition);
 		}
 		else
 		{
@@ -114,7 +139,6 @@ public class TileManager : MonoBehaviour
 		}
 		if (shaking && time >= anim_time)
 		{
-			Debug.Log("Restart - time: " + time);
 			RestoreTile(originalTile, localPlace);
 			time = 0;
 			shaking = false;
@@ -134,5 +158,4 @@ public class TileManager : MonoBehaviour
 		}
 		HandleShaking();
 	}
-    
 }
