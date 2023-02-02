@@ -14284,7 +14284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 2074091424}
-  replaceTile: {fileID: 11400000, guid: 86a99c31b19a7bd408800527ae4af993, type: 2}
+  replaceTile: {fileID: 11400000, guid: 1c0d9daefb0c39e4fab26292bd3f02d8, type: 2}
 --- !u!1 &1077597629
 GameObject:
   m_ObjectHideFlags: 0
@@ -14777,6 +14777,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249cbe2cabe9edaa980592ebc949edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 7
+  jumpingPower: 8
+  map: {fileID: 0}
 --- !u!1001 &1329004534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15312,6 +15315,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249cbe2cabe9edaa980592ebc949edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 7
+  jumpingPower: 8
+  map: {fileID: 0}
 --- !u!61 &1870751621
 BoxCollider2D:
   m_ObjectHideFlags: 0

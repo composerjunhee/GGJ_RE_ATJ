@@ -13,6 +13,9 @@ public class TileManager : MonoBehaviour
 	[SerializeField]
 	private TileBase replaceTile;
 	private TileBase originalTile;
+	Vector3Int localPlace;
+	private bool shaking = false;
+	private float time;
 	private int GetWorldTiles () 
 	{
 		int i = 0;
@@ -49,34 +52,34 @@ public class TileManager : MonoBehaviour
 		}
 	}
 
+	private void	RestoreTile(TileBase tile, Vector3Int pos)
+	{
+		map.SetTile(pos, tile);
+	}
+
+	private void TransforTile(Vector3Int pos, float rotation)
+	{
+		var tileTransform = Matrix4x4.Translate(new Vector3(0, 0, 0)) * 
+							Matrix4x4.Rotate(Quaternion.Euler(0, 0, rotation));
+		var changeData = new TileChangeData
+		{
+			position = pos,
+			tile = replaceTile,
+			color = Color.white,
+			transform = tileTransform
+		};
+		map.SetTile(changeData, false);
+	}
 	private void ShrinkTiles()
 	{
 		int	i  = Random.Range(0, totalTiles);
-		Vector3Int localPlace;
 		if (tiles.ContainsKey(i))
 		{
 			localPlace = tiles[i];
+			originalTile = map.GetTile(localPlace);
 			if (map.HasTile(localPlace))
-			{
-				originalTile = map.GetTile(localPlace);
-				var tileTransform = Matrix4x4.Translate(new Vector3(0.03f, 0.03f, 0)) * 
-									Matrix4x4.Rotate(Quaternion.Euler(0, 0, Random.Range(-10f, 10f)));
-				var changeData = new TileChangeData
-				{
-					position = localPlace,
-					tile = replaceTile,
-					color = Color.white,
-					transform = tileTransform
-				};
-				map.SetTile(changeData, false);
-			}
+				shaking = true;
 		}
-		
-	}
-
-	private void ResetTile(Vector3Int tilePosition)
-	{
-
 	}
 
 	private void Awake()
@@ -86,12 +89,25 @@ public class TileManager : MonoBehaviour
 
 	private void	Update()
 	{
+		int	timer = 2;
 		if (Input.GetMouseButtonDown(0))
 		{
 			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 			Vector3Int gridPosition = map.WorldToCell(mousePosition);
 			change_strenght(gridPosition);
 			ShrinkTiles();
+		}
+		if (shaking && time < timer)
+		{
+			time += Time.deltaTime;
+			TransforTile(localPlace, Random.Range(-10f, 10f));
+		}
+		if (shaking && time >= timer)
+		{
+			TransforTile(localPlace, 0);
+			RestoreTile(originalTile, localPlace);
+			time = 0;
+			shaking = false;
 		}
 	}
     
