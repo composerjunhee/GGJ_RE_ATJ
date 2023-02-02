@@ -158,8 +158,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0067861, y: 69.1633}
-  m_SizeDelta: {x: 1324, y: 624.9724}
+  m_AnchoredPosition: {x: -5.3565, y: 51.4217}
+  m_SizeDelta: {x: 789.2869, y: 407.7545}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &247366823
 MonoBehaviour:
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A long time ago, in a galaxy far, far, away...\n\n               A vast
+  m_text: "A long time ago, in a galaxy far, far, away...\n               A vast
     sea of stars serves as the backdrop for the main title. \n               War
     drums echo through the heavens as a rollup slowly crawls \n               into
     infinity.\n\n                    It is a period of civil war. Rebel spaceships,
@@ -189,11 +189,7 @@ MonoBehaviour:
     victory against the evil Galactic Empire.\n\n                    During the battle,
     Rebel spies managed to steal \n                    secret plans to the Empire's
     ultimate weapon, the \n                    Death Star, an armored space station
-    with enough \n                    power to destroy an entire planet.\n\n                   
-    Pursued by the Empire's sinister agents, Princess \n                    Leia
-    races home aboard her starship, custodian of \n                    the stolen
-    plans that can save her people and \n                    restore freedom to the
-    galaxy..."
+    with enough \n                    power to destroy an entire planet."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -462,7 +458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -842,7 +838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000011444, y: -277.5}
+  m_AnchoredPosition: {x: -0.000011444, y: -206.74}
   m_SizeDelta: {x: 318.3695, y: 97.1245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698617021

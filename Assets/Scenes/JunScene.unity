@@ -14943,6 +14943,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249cbe2cabe9edaa980592ebc949edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 7
+  jumpingPower: 8
+  map: {fileID: 0}
 --- !u!1001 &1329004534
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15414,6 +15417,7 @@ GameObject:
   - component: {fileID: 1870751622}
   - component: {fileID: 1870751621}
   - component: {fileID: 1870751620}
+  - component: {fileID: 1870751629}
   - component: {fileID: 1870751625}
   - component: {fileID: 1870751628}
   - component: {fileID: 1870751627}
@@ -15437,6 +15441,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 249cbe2cabe9edaa980592ebc949edd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 7
+  jumpingPower: 8
+  map: {fileID: 0}
 --- !u!61 &1870751621
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15558,7 +15565,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870751619}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a47c6a0910d146a25b9d21d23cc0913e, type: 3}
   m_Name: 
@@ -15613,6 +15620,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots: []
   slotPrefab: {fileID: 963306445303948816, guid: 1c229822955ae43ed9fc3d1a51266e7f, type: 3}
+--- !u!114 &1870751629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1870751619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64abff1260e591c4e9c761fb8c13f82e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  position: {x: 0, y: 0}
+  map: {fileID: 2074091424}
+  cellPosition: {x: 0, y: 0, z: 0}
+  tile: {fileID: 0}
+  inputRawX: 0
+  inputRawY: 0
+  mineDirectionX: 0
+  mineDirectionY: 0
+  animator: {fileID: 0}
+  mining: 0
+  tileManager: {fileID: 0}
 --- !u!1 &1912995184
 GameObject:
   m_ObjectHideFlags: 0
