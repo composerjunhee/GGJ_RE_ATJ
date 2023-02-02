@@ -16,11 +16,13 @@ public class MineBlock : MonoBehaviour
     private Animator	animator;
 	private bool		mining = false;
    	public TileManager  tileManager;
+    private CapsuleCollider2D capsuleCollider2D;
 
     // Start is called before the first frame update
     void Start()
     {
 		animator = GetComponent<Animator>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
 	public void finnishMining()
@@ -30,14 +32,14 @@ public class MineBlock : MonoBehaviour
         position = transform.position;
         if (mineDirectionX != 0.0f)
         {
-            // Checks if there is a tile next to the player on the horizontal axis 
-            cellPosition = map.WorldToCell(position + new Vector2(0.6f * mineDirectionX, 0));	
+            // Checks if there is a tile next to the player on the horizontal axis
+            cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center - new Vector3((capsuleCollider2D.bounds.extents.x + 0.6f) * -mineDirectionX, 0, 0));	
             tile = map.GetTile(cellPosition);	
         }
         if (mineDirectionY != 0.0f)
         {
             // Checks if there is a tile next to the player on the vertical axis 
-            cellPosition = map.WorldToCell(position + new Vector2(0, 1.1f * mineDirectionY));
+			cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center - new Vector3(0, (capsuleCollider2D.bounds.extents.y + 0.6f) * -mineDirectionY, 0));	
             tile = map.GetTile(cellPosition);
         }
         // If there is a tile mine it off
