@@ -16,6 +16,7 @@ public class TileManager : MonoBehaviour
 	[SerializeField]
 	private	TileBase	anim_worm;
 	Vector3Int localPlace;
+	private Vector3Int enemy1Place;
 	private bool shaking = false;
 	private float time;
 	private bool animating = false;
@@ -56,9 +57,6 @@ public class TileManager : MonoBehaviour
 				reward = Instantiate(mineral, gridPosition, Quaternion.Euler(0, 0, 0));
 			else
 				reward = Instantiate(water, gridPosition, Quaternion.Euler(0, 0, 0));
-			//Rigidbody2D rBody = reward.AddComponent<Rigidbody2D>();
-			//rBody.AddForce(Vector2.up * 3);
-			print("rand: "+ rand + " randItem: " + randItem);
 		}
 	}
 
@@ -103,9 +101,9 @@ public class TileManager : MonoBehaviour
 		int	i  = Random.Range(0, totalTiles);
 		if (tiles.ContainsKey(i))
 		{
-			localPlace = tiles[i];
-			originalTile = map.GetTile(localPlace);
-			if (map.HasTile(localPlace))
+			enemy1Place = tiles[i];
+			originalTile = map.GetTile(enemy1Place);
+			if (map.HasTile(enemy1Place))
 				shaking = true;
 		}
 	}
@@ -124,7 +122,7 @@ public class TileManager : MonoBehaviour
 		if (shaking && time < timer)
 		{
 			time += Time.deltaTime;
-			TransforTile(localPlace, Random.Range(-10f, 10f));
+			TransforTile(enemy1Place, Random.Range(-10f, 10f));
 			animating = true;
 		}
 		if (shaking && time >= timer && time < anim_time)
@@ -132,14 +130,14 @@ public class TileManager : MonoBehaviour
 			time += Time.deltaTime;
 			if (animating)
 			{
-				TransforTile(localPlace, 0);
-				map.SetTile(localPlace, anim_worm);
+				TransforTile(enemy1Place, 0);
+				map.SetTile(enemy1Place, anim_worm);
 			}
 			animating = false;
 		}
 		if (shaking && time >= anim_time)
 		{
-			RestoreTile(originalTile, localPlace);
+			RestoreTile(originalTile, enemy1Place);
 			time = 0;
 			shaking = false;
 			animating = false;
@@ -149,13 +147,6 @@ public class TileManager : MonoBehaviour
 
 	private void	Update()
 	{
-		if (Input.GetMouseButtonDown(0))
-		{
-			Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-			Vector3Int gridPosition = map.WorldToCell(mousePosition);
-			change_strenght(gridPosition);
-			
-		}
 		HandleShaking();
 	}
 }

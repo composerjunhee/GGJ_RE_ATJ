@@ -283,8 +283,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7853622228407397672, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 2008242034}
+    - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+      propertyPath: map
+      value: 
+      objectReference: {fileID: 2008242034}
+    - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+      propertyPath: glue
+      value: 
+      objectReference: {fileID: 1014248017}
+    - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+      propertyPath: wood
+      value: 
+      objectReference: {fileID: 464462301}
+    - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+      propertyPath: water
+      value: 
+      objectReference: {fileID: 1354388658}
+    - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+      propertyPath: mineral
+      value: 
+      objectReference: {fileID: 487840020}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+--- !u!1 &464462301 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1389060148680776145, guid: 09a3d0f52267e4b9aac07c1e5deba9cf, type: 3}
+  m_PrefabInstance: {fileID: 610865276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &487840020 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 544239938970381866, guid: 00386b60ab41c45cc93146c4ac3206d3, type: 3}
+  m_PrefabInstance: {fileID: 2019552255}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &610865276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -443,11 +477,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1775665418579646526, guid: 84b4d5d57630247b78044d4a84f731d1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.25
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 1775665418579646526, guid: 84b4d5d57630247b78044d4a84f731d1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.587
+      value: -4.56
       objectReference: {fileID: 0}
     - target: {fileID: 1775665418579646526, guid: 84b4d5d57630247b78044d4a84f731d1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -483,6 +517,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84b4d5d57630247b78044d4a84f731d1, type: 3}
+--- !u!1 &1014248017 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1775665418579646522, guid: 84b4d5d57630247b78044d4a84f731d1, type: 3}
+  m_PrefabInstance: {fileID: 1014248016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1077597629
 GameObject:
   m_ObjectHideFlags: 0
@@ -963,6 +1002,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 0}
+  tileManager: {fileID: 0}
 --- !u!114 &1157562850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -978,6 +1018,11 @@ MonoBehaviour:
   speed: 7
   jumpingPower: 8
   map: {fileID: 0}
+--- !u!1 &1354388658 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2426294933580420956, guid: f91459482be8a4cbcbbb6eeb1bdf6b4d, type: 3}
+  m_PrefabInstance: {fileID: 1941467532}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1596542178
 GameObject:
   m_ObjectHideFlags: 0
@@ -1226,7 +1271,6 @@ GameObject:
   - component: {fileID: 1870751628}
   - component: {fileID: 1870751627}
   - component: {fileID: 1870751626}
-  - component: {fileID: 1870751629}
   m_Layer: 0
   m_Name: man
   m_TagString: Player
@@ -1376,6 +1420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   map: {fileID: 2008242034}
+  tileManager: {fileID: 2017570094}
 --- !u!111 &1870751626
 Animation:
   m_ObjectHideFlags: 0
@@ -1425,26 +1470,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   slots: []
   slotPrefab: {fileID: 963306445303948816, guid: 1c229822955ae43ed9fc3d1a51266e7f, type: 3}
---- !u!114 &1870751629
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870751619}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 869af90c0773f1b438e819249d901e93, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  map: {fileID: 2008242034}
-  replaceTile: {fileID: 0}
-  anim_worm: {fileID: 0}
-  percent: 80
-  wood: {fileID: 0}
-  mineral: {fileID: 0}
-  water: {fileID: 0}
-  glue: {fileID: 0}
 --- !u!1001 &1941467532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1555,7 +1580,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5355496639891382906, guid: 023e3661fd0c4954e8aeac90098a06d3, type: 3}
       propertyPath: m_Name
-      value: Grid (1)
+      value: Grid
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 023e3661fd0c4954e8aeac90098a06d3, type: 3}
@@ -1564,6 +1589,17 @@ Tilemap:
   m_CorrespondingSourceObject: {fileID: 5355496640454255821, guid: 023e3661fd0c4954e8aeac90098a06d3, type: 3}
   m_PrefabInstance: {fileID: 2008242033}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2017570094 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+  m_PrefabInstance: {fileID: 139284400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 869af90c0773f1b438e819249d901e93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2019552255
 PrefabInstance:
   m_ObjectHideFlags: 0
