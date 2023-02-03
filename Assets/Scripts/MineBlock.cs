@@ -17,6 +17,8 @@ public class MineBlock : MonoBehaviour
 	private bool		mining = false;
    	public TileManager  tileManager;
     private CapsuleCollider2D capsuleCollider2D;
+    public	GameObject	TileHighlight;
+    private GameObject	highlighted;
 
     // Start is called before the first frame update
     void Start()
@@ -25,10 +27,8 @@ public class MineBlock : MonoBehaviour
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
     }
 
-	public void finnishMining()
-	{
-		mining = false;
-        // Player position
+    private TileBase targetTile()
+    {
         position = transform.position;
         if (mineDirectionX != 0.0f)
         {
@@ -42,6 +42,22 @@ public class MineBlock : MonoBehaviour
 			cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center - new Vector3(0, (capsuleCollider2D.bounds.extents.y + 0.6f) * -mineDirectionY, 0));	
             tile = map.GetTile(cellPosition);
         }
+        return (tile);
+    }
+
+    private void highlightTargetTile(TileBase tile)
+    {
+        Destroy(highlighted);
+        if (tile)
+            highlighted = Instantiate(TileHighlight, map.GetCellCenterWorld(cellPosition), Quaternion.Euler(0, 0, 0));
+    }
+
+	public void finnishMining()
+	{
+		mining = false;
+        // Player position
+        position = transform.position;
+        tile = targetTile();
         // If there is a tile mine it off
         if (tile != null)
         {
@@ -76,6 +92,7 @@ public class MineBlock : MonoBehaviour
                 mineDirectionY = inputRawY;
                 mineDirectionX = 0f;
             }
+            highlightTargetTile(targetTile());
         }
         if (Input.GetButton("Fire1") && mining == false)
         {
