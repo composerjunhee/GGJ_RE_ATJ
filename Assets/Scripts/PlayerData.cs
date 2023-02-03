@@ -9,7 +9,6 @@ public class PlayerData : MonoBehaviour
 	public int	maxHP;
 	[HideInInspector]
 	public int minHP = 0;
-	public int	bombs = 0;
 	public void LooseHP(int amount)
 	{
 		hp -= amount;

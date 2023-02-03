@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Healthbar : MonoBehaviour
 {
@@ -44,8 +45,8 @@ public class Healthbar : MonoBehaviour
 				timer = 0;
 			}
 		}
-		//else
-			//timer = 0;
+		else
+			timer = 0;
 	}
 	private void HandleOverGround()
 	{
@@ -61,8 +62,8 @@ public class Healthbar : MonoBehaviour
 				timerOver = 0;
 			}
 		}
-		//else
-			//timerOver = 0;
+		else
+			timerOver = 0;
 	}
 
 	private void Update()
@@ -70,5 +71,9 @@ public class Healthbar : MonoBehaviour
 		HandleUnderGround();
 		HandleOverGround();
 		SetHealth(data.hp);
+		if (data.hp <= 0)
+		{
+			SceneManager.LoadScene("GameOver");
+		}
 	}
 }
