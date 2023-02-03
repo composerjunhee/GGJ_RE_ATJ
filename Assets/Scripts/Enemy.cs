@@ -1,22 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Tilemaps;
 public class Enemy : MonoBehaviour
 {
 	private GameObject player;
+	private Rigidbody2D rb;
+	private PlayerData hp;
+	[SerializeField]
+	private int	damage = 10;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-    }
+		rb = player.GetComponent<Rigidbody2D>();
+		hp = FindObjectOfType<PlayerData>();
+    }	
 
 	private void OnCollisionEnter2D(Collision2D col)
 	{
 		if (col.collider.name == "man")
 		{
-			Debug.Log("Detected");
-			//Add some force to the player here, when he is hit by the enemy; Also decrease the health;
+			//Reduce the health of the player HEre!!!!!
+			hp.LooseHP(damage);
+			rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
+			//rb.AddForce(transform.right * -500.0f, ForceMode2D.Impulse);
 		}
 	}
 
