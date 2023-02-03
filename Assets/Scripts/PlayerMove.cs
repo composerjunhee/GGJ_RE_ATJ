@@ -24,6 +24,7 @@ public class PlayerMove : MonoBehaviour
 	private float inAirAccumulatior = 0f;
 	private bool showingText = false;
 	// private treeLevelup treeLvlup;
+    public GameObject menuSet;
 
     void Start()
     {
@@ -38,6 +39,15 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        //Sub menu
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (menuSet.activeSelf)
+                menuSet.SetActive(false);
+            else
+                menuSet.SetActive(true);
+        }
+        //Facing
         if (!isFacingRight && horizontal > 0f)
             Flip();
         else if (isFacingRight && horizontal < 0f)
