@@ -20,11 +20,14 @@ public class MineBlock : MonoBehaviour
     public	GameObject	TileHighlight;
     private GameObject	highlighted;
 
+    private PlayerMove pmove;
+
     // Start is called before the first frame update
     void Start()
     {
 		animator = GetComponent<Animator>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        pmove = FindObjectOfType<PlayerMove>();
     }
 
     private TileBase targetTile()
@@ -94,7 +97,7 @@ public class MineBlock : MonoBehaviour
             }
             highlightTargetTile(targetTile());
         }
-        if (Input.GetButton("Fire1") && mining == false)
+        if (Input.GetButton("Fire1") && mining == false && !pmove.IsInAir())
         {
 			Debug.Log("Started mining...");
 			mining = true;

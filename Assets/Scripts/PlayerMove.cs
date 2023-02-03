@@ -142,6 +142,11 @@ public class PlayerMove : MonoBehaviour
         return false;
     }
 
+    public bool IsInAir()
+    {
+        return (inAir);
+    }
+
     private void Flip()
     {
         spriteRenderer.flipX = isFacingRight;
