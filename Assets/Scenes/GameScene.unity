@@ -244,6 +244,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
+--- !u!224 &31935182 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7889461233274276689, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
+  m_PrefabInstance: {fileID: 31935181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &139284400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -337,6 +342,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+--- !u!1 &395009808 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2648130653434160450, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+  m_PrefabInstance: {fileID: 602561386}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &464462301 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1389060148680776145, guid: 09a3d0f52267e4b9aac07c1e5deba9cf, type: 3}
@@ -347,6 +357,107 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 544239938970381866, guid: 00386b60ab41c45cc93146c4ac3206d3, type: 3}
   m_PrefabInstance: {fileID: 2019552255}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &602561386
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 31935182}
+    m_Modifications:
+    - target: {fileID: 2648130653434160450, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_Name
+      value: MenuSet
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160450, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648130653434160451, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
 --- !u!1001 &610865276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1049,6 +1160,7 @@ MonoBehaviour:
   airManouver: 6
   UiObject: {fileID: 0}
   level: 1
+  menuSet: {fileID: 0}
 --- !u!1 &1354388658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2426294933580420956, guid: f91459482be8a4cbcbbb6eeb1bdf6b4d, type: 3}
@@ -1328,6 +1440,7 @@ MonoBehaviour:
   airManouver: 6
   UiObject: {fileID: 0}
   level: 1
+  menuSet: {fileID: 395009808}
 --- !u!50 &1870751622
 Rigidbody2D:
   serializedVersion: 4
