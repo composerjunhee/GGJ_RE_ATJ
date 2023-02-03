@@ -29,7 +29,9 @@ public class TileManager : MonoBehaviour
 	private	GameObject	player;
 	[SerializeField]
 	private float		enemyRange = 5.0f;
-
+	[SerializeField]
+	private	GameObject enemy;
+	private GameObject newEnemyBody;
 	private int GetWorldTiles () 
 	{
 		int i = 0;
@@ -128,10 +130,19 @@ public class TileManager : MonoBehaviour
 		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
+	private void	DestroyEnemy()
+	{
+		Destroy(newEnemyBody);
+	}
+
 	private void EnemyAnimation()
 	{
+		Vector3 pos = enemy1Place;
+		pos.x += 0.5f;
+		pos.y += 0.5f;
 		TransforTile(enemy1Place, 0);
 		map.SetTile(enemy1Place, anim_worm);
+		newEnemyBody = Instantiate(enemy, pos, Quaternion.Euler(0, 0, 0));
 	}
 
 	private void HandleShaking()
@@ -157,6 +168,8 @@ public class TileManager : MonoBehaviour
 		{
 			RestoreTile(originalTile, enemy1Place);
 			time = 0;
+			if (shaking)
+				DestroyEnemy();
 			shaking = false;
 			animating = false;
 		}
