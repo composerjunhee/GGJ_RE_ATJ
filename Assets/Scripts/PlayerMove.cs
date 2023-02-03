@@ -7,8 +7,8 @@ public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rb;
     private CapsuleCollider2D capsuleCollider2D;
+    private SpriteRenderer  spriteRenderer;
     private float horizontal;
-    private float vertical;
     public float speed = 7f;
     public float jumpingPower = 8f;
     private bool isFacingRight = true;
@@ -29,6 +29,7 @@ public class PlayerMove : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         UiObject.SetActive(false);
 		// treeLvlup = FindObjectOfType<treeLevelup>();
@@ -133,10 +134,8 @@ public class PlayerMove : MonoBehaviour
 
     private void Flip()
     {
+        spriteRenderer.flipX = isFacingRight;
         isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
     }
 }
 
