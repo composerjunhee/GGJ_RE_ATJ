@@ -8,32 +8,33 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D capsuleCollider2D;
     private float horizontal;
+	private float vertical;
     public float speed = 7f;
     public float jumpingPower = 8f;
     private bool isFacingRight = true;
-    public Tilemap		map;
-	private Vector3Int	cellPosition;
-	private TileBase	tile;
-    private Animator	animator;
-    private bool        inAir = false;
-    private int         landingDelay = 20; // Number of frames delay. Hacky fix for landing bug 
-    public  float       airManouver = 6;
+    public Tilemap map;
+    private Vector3Int cellPosition;
+    private TileBase tile;
+    private Animator animator;
+    private bool inAir = false;
+    private int landingDelay = 20; // Number of frames delay. Hacky fix for landing bug 
+    public float airManouver = 6;
 
     void Start()
     {
-		rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
-        // Debug.Log(boxCollider2D.bounds.center - new Vector3(0, boxCollider2D.bounds.extents.y, 0));
         if (!isFacingRight && horizontal > 0f)
             Flip();
         else if (isFacingRight && horizontal < 0f)
             Flip();
-        if (Input.GetButtonDown("Jump") && IsGrounded())
+		// Jump
+        if (Input.GetButtonDown("Jump") && (IsGrounded() || IsTouchingWall()))
             animator.SetTrigger("Jump");
         // check if landed after jump
         Landed();
@@ -50,7 +51,7 @@ public class PlayerMove : MonoBehaviour
             // Max speed check
             else if (horizontal != 0 && Mathf.Abs(rb.velocity.x) < speed)
                 rb.velocity = new Vector2(rb.velocity.x + horizontal / airManouver, rb.velocity.y);
-        }
+        } 
         else
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
@@ -71,12 +72,12 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
-    
+
     private void Jumped()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-    	animator.SetTrigger("Flying");
-		inAir = true;
+        animator.SetTrigger("Flying");
+        inAir = true;
     }
     private bool IsGrounded()
     {
@@ -86,6 +87,21 @@ public class PlayerMove : MonoBehaviour
             return (true);
         return false;
     }
+
+	private bool IsTouchingWall()
+	{
+		// check left
+		cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center - new Vector3(capsuleCollider2D.bounds.extents.x + 0.05f, 0, 0));
+        tile = map.GetTile(cellPosition);
+        if (tile)
+            return (true);
+		// check right
+		cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center + new Vector3(capsuleCollider2D.bounds.extents.x + 0.05f, 0, 0));
+        tile = map.GetTile(cellPosition);
+        if (tile)
+            return (true);
+        return false;
+	}
 
     private void Flip()
     {
