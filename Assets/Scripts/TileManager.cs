@@ -26,6 +26,9 @@ public class TileManager : MonoBehaviour
 	public	GameObject	mineral;
 	public GameObject	water;
 	public GameObject	glue;
+	private	GameObject	player;
+
+
 	private int GetWorldTiles () 
 	{
 		int i = 0;
@@ -44,19 +47,24 @@ public class TileManager : MonoBehaviour
 
 	private void	GetReward(Vector3Int gridPosition)
 	{
+		Vector3 spawnPosition;
+		spawnPosition.x = gridPosition.x + 0.5f;
+		spawnPosition.y = gridPosition.y + 0.5f;
+		spawnPosition.z = gridPosition.z;
 		int	rand = Random.Range(0, 99);
+		
 		if (rand < percent)
 		{
 			GameObject reward;
 			int	randItem = Random.Range(0,99);
 			if (randItem < 25)
-				reward = Instantiate(wood, gridPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(wood, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else if (randItem < 50)
-				reward = Instantiate(water, gridPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(water, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else if (randItem < 75)
-				reward = Instantiate(mineral, gridPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(mineral, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else
-				reward = Instantiate(water, gridPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(water, spawnPosition, Quaternion.Euler(0, 0, 0));
 		}
 	}
 
@@ -111,6 +119,7 @@ public class TileManager : MonoBehaviour
 	private void Awake()
 	{
 		totalTiles = GetWorldTiles();
+		player = GameObject.FindGameObjectWithTag("Player");
 	}
 
 	private void HandleShaking()
