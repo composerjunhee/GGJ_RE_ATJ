@@ -130,18 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3785587456470189652, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 474.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785587456470189652, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 121
-      objectReference: {fileID: 0}
-    - target: {fileID: 3785587456470189738, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
-      propertyPath: m_Value
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3785587457378621989, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1043,8 +1031,6 @@ MonoBehaviour:
   jumpingPower: 8
   map: {fileID: 0}
   airManouver: 6
-  UiObject: {fileID: 0}
-  level: 1
 --- !u!1 &1354388658 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2426294933580420956, guid: f91459482be8a4cbcbbb6eeb1bdf6b4d, type: 3}
@@ -1322,8 +1308,6 @@ MonoBehaviour:
   jumpingPower: 8
   map: {fileID: 2008242034}
   airManouver: 6
-  UiObject: {fileID: 0}
-  level: 1
 --- !u!50 &1870751622
 Rigidbody2D:
   serializedVersion: 4
@@ -1386,7 +1370,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 999
-  m_Sprite: {fileID: -1245003581, guid: bd3a700d570104a45ad3605bcba05e51, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a528a173ff245d74b9a4c110166554a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1503,6 +1487,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 414208474efcb0a4dbca76e54c0f478e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 100
+  maxHP: 100
+  minHP: 0
 --- !u!1001 &1941467532
 PrefabInstance:
   m_ObjectHideFlags: 0
