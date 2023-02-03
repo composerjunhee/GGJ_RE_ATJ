@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private BoxCollider2D boxCollider2D;
+    private CapsuleCollider2D capsuleCollider2D;
     private float horizontal;
     public float speed = 7f;
     public float jumpingPower = 8f;
@@ -16,12 +16,13 @@ public class PlayerMove : MonoBehaviour
 	private TileBase	tile;
     private Animator	animator;
     private bool        inAir = false;
-    private int         landing_delay = 5; // Number of frames delay. Hacky fix for landing bug 
+    private int         landingDelay = 20; // Number of frames delay. Hacky fix for landing bug 
+    public  float       airManouver = 6;
 
     void Start()
     {
 		rb = GetComponent<Rigidbody2D>();
-        boxCollider2D = GetComponent<BoxCollider2D>();
+        capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -32,32 +33,45 @@ public class PlayerMove : MonoBehaviour
             Flip();
         else if (isFacingRight && horizontal < 0f)
             Flip();
-        // if (Input.GetButtonDown("Jump") && !IsGrounded())
-        //     rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         if (Input.GetButtonDown("Jump") && IsGrounded())
-        {
             animator.SetTrigger("Jump");
-            // rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
-        }
-        // landed after jump
-        if (inAir && IsGrounded())
-        {
-            landing_delay--;
-            if (landing_delay == 0)
-            {
-                animator.SetTrigger("Landed");
-                inAir = false;
-                landing_delay = 5;
-            }
-        }
+        // check if landed after jump
+        Landed();
     }
 
     private void FixedUpdate()
     {
         horizontal = Input.GetAxisRaw("Horizontal");
-        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if (inAir)
+        {
+            // Check if trying to move to the opposite way of current velocity
+            if (horizontal != 0 && (Mathf.Sign(rb.velocity.x) > horizontal || Mathf.Sign(rb.velocity.x) < horizontal))
+                rb.velocity = new Vector2(rb.velocity.x + horizontal / airManouver, rb.velocity.y);
+            // Max speed check
+            else if (horizontal != 0 && Mathf.Abs(rb.velocity.x) < speed)
+                rb.velocity = new Vector2(rb.velocity.x + horizontal / airManouver, rb.velocity.y);
+        }
+        else
+        {
+            rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(rb.velocity.x));
+        }
     }
 
+    private void Landed()
+    {
+        if (inAir && IsGrounded())
+        {
+            landingDelay--;
+            if (landingDelay == 0)
+            {
+                animator.SetTrigger("Landed");
+                inAir = false;
+                landingDelay = 5;
+            }
+        }
+    }
+    
     private void Jumped()
     {
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
@@ -66,8 +80,7 @@ public class PlayerMove : MonoBehaviour
     }
     private bool IsGrounded()
     {
-        cellPosition = map.WorldToCell(boxCollider2D.bounds.center - new Vector3(0, boxCollider2D.bounds.extents.y + 0.05f, 0));
-        
+        cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center - new Vector3(0, capsuleCollider2D.bounds.extents.y + 0.05f, 0));
         tile = map.GetTile(cellPosition);
         if (tile)
             return (true);
