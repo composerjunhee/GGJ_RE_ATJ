@@ -27,7 +27,8 @@ public class TileManager : MonoBehaviour
 	public GameObject	water;
 	public GameObject	glue;
 	private	GameObject	player;
-
+	[SerializeField]
+	private float		enemyRange = 5.0f;
 
 	private int GetWorldTiles () 
 	{
@@ -106,10 +107,15 @@ public class TileManager : MonoBehaviour
 	}
 	private void ShrinkTiles()
 	{
-		int	i  = Random.Range(0, totalTiles);
-		if (tiles.ContainsKey(i))
+		Vector3 playerPosition = player.transform.position;
+		playerPosition.x += Random.Range(-enemyRange, enemyRange);
+		playerPosition.y += Random.Range(-enemyRange, enemyRange);
+		Vector3Int r_pos = Vector3Int.RoundToInt(playerPosition);
+		bool contain = tiles.ContainsValue(r_pos);
+		
+		if (contain)
 		{
-			enemy1Place = tiles[i];
+			enemy1Place = r_pos;
 			originalTile = map.GetTile(enemy1Place);
 			if (map.HasTile(enemy1Place))
 				shaking = true;
@@ -120,6 +126,12 @@ public class TileManager : MonoBehaviour
 	{
 		totalTiles = GetWorldTiles();
 		player = GameObject.FindGameObjectWithTag("Player");
+	}
+
+	private void EnemyAnimation()
+	{
+		TransforTile(enemy1Place, 0);
+		map.SetTile(enemy1Place, anim_worm);
 	}
 
 	private void HandleShaking()
@@ -138,10 +150,7 @@ public class TileManager : MonoBehaviour
 		{
 			time += Time.deltaTime;
 			if (animating)
-			{
-				TransforTile(enemy1Place, 0);
-				map.SetTile(enemy1Place, anim_worm);
-			}
+				EnemyAnimation();
 			animating = false;
 		}
 		if (shaking && time >= anim_time)

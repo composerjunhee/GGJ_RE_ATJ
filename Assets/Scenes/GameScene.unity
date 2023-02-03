@@ -307,6 +307,10 @@ PrefabInstance:
       propertyPath: mineral
       value: 
       objectReference: {fileID: 487840020}
+    - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+      propertyPath: enemyBody
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
 --- !u!1 &464462301 stripped
