@@ -181,15 +181,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "A long time ago, in a galaxy far, far, away...\n               A vast
-    sea of stars serves as the backdrop for the main title. \n               War
-    drums echo through the heavens as a rollup slowly crawls \n               into
-    infinity.\n               It is a period of civil war. Rebel spaceships, \n              
-    striking from a hidden base, have won their first \n               victory against
-    the evil Galactic Empire.\n\n               During the battle, Rebel spies managed
-    to steal \n               secret plans to the Empire's ultimate weapon, the \n              
-    Death Star, an armored space station with enough\n\t     power to destroy an
-    entire planet.\n"
+  m_text: "               \n\t     A long time ago, in a galaxy far, far, away...\n\n              
+    A vast sea of stars serves as the backdrop for the main title. \n              
+    War drums echo through the heavens as a rollup slowly crawls \n              
+    into infinity.\n               It is a period of civil war. Rebel spaceships,
+    \n               striking from a hidden base, have won their first \n              
+    victory against the evil Galactic Empire.\n\n               During the battle,
+    Rebel spies managed to steal \n               secret plans to the Empire's ultimate
+    weapon, the \n               Death Star, an armored space station with enough\n\t    
+    power to destroy an entire planet.\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -461,7 +461,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1024, y: 768}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -838,7 +838,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000020027, y: -164}
+  m_AnchoredPosition: {x: -0.000020027, y: -182.27}
   m_SizeDelta: {x: 311.9148, y: 97.1245}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1698617021
