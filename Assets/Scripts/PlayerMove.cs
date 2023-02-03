@@ -147,5 +147,10 @@ public class PlayerMove : MonoBehaviour
         spriteRenderer.flipX = isFacingRight;
         isFacingRight = !isFacingRight;
     }
+
+    public void GameExit()
+    {
+        Application.Quit();
+    }
 }
 
