@@ -32,6 +32,8 @@ public class TileManager : MonoBehaviour
 	[SerializeField]
 	private	GameObject enemy;
 	private GameObject newEnemyBody;
+	private PlayerData data;
+
 	private int GetWorldTiles () 
 	{
 		int i = 0;
@@ -128,6 +130,7 @@ public class TileManager : MonoBehaviour
 	{
 		totalTiles = GetWorldTiles();
 		player = GameObject.FindGameObjectWithTag("Player");
+		data = FindObjectOfType<PlayerData>();
 	}
 
 	private void	DestroyEnemy()
@@ -173,11 +176,12 @@ public class TileManager : MonoBehaviour
 			shaking = false;
 			animating = false;
 		}
-	
 	}
 
 	private void	Update()
 	{
+		//if (Input.GetKeyDown(KeyCode.H))
+		//	ThrowBomb();
 		HandleShaking();
 	}
 }
