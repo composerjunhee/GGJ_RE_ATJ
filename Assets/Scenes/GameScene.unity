@@ -596,6 +596,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1870751620}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GameExit
+      objectReference: {fileID: 0}
     - target: {fileID: 5223319009409183058, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
       propertyPath: m_Name
       value: MenuSet
