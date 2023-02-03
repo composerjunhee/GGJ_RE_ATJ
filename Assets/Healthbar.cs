@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class Healthbar : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class Healthbar : MonoBehaviour
 	private float timer;
 	private float timerOver;
 	private GameObject player;
+	[SerializeField]
+	private Tilemap map;
 
 
 	private void	Start()
@@ -18,11 +21,12 @@ public class Healthbar : MonoBehaviour
 		data = FindObjectOfType<PlayerData>();
 		SetMaxHealth(data.maxHP);
 		player = GameObject.FindGameObjectWithTag("Player");
+		map = FindObjectOfType<Tilemap>();
 	}
     public void SetMaxHealth(int health)
     {
         slider.maxValue = health;
-		//slider.minValue = data.minHP;
+		slider.minValue = data.minHP;
         slider.value = health;
     }
 
@@ -30,6 +34,21 @@ public class Healthbar : MonoBehaviour
     {
         slider.value = health;
     }
+
+	private int	DeepOxigen(float playerY)
+	{
+		int	start = -5;
+		int	end = map.size.y;
+		int	total = end - start;
+		if (playerY < total * 0.25)
+			return (1);
+		else if (playerY < total * 0.50)
+			return (2);
+		else if (playerY < total * 0.75)
+			return (3);
+		else
+			return (4);
+	}
 
 	private void HandleUnderGround()
 	{
@@ -39,7 +58,7 @@ public class Healthbar : MonoBehaviour
 			timer += Time.deltaTime;
 			if (timer > time)
 			{
-				data.hp--;
+				data.hp -= DeepOxigen(player.transform.position.y);
 				if (data.hp < data.minHP)
 					data.hp = data.minHP;
 				timer = 0;
