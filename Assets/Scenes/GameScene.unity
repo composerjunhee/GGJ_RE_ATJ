@@ -1488,7 +1488,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 100
-  bombs: 12
+  maxHP: 10
+  minHP: 0
 --- !u!1001 &1941467532
 PrefabInstance:
   m_ObjectHideFlags: 0
