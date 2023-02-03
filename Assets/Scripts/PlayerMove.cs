@@ -8,7 +8,7 @@ public class PlayerMove : MonoBehaviour
     private Rigidbody2D rb;
     private CapsuleCollider2D capsuleCollider2D;
     private float horizontal;
-	private float vertical;
+    private float vertical;
     public float speed = 7f;
     public float jumpingPower = 8f;
     private bool isFacingRight = true;
@@ -17,14 +17,22 @@ public class PlayerMove : MonoBehaviour
     private TileBase tile;
     private Animator animator;
     private bool inAir = false;
-    private int landingDelay = 20; // Number of frames delay. Hacky fix for landing bug 
     public float airManouver = 6;
+    public GameObject UiObject;
+    public int level = 1;
+	private float textAccumulatior = 0f;
+	private float inAirAccumulatior = 0f;
+	private bool showingText = false;
+	// private treeLevelup treeLvlup;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
+        UiObject.SetActive(false);
+		// treeLvlup = FindObjectOfType<treeLevelup>();
+		LevelUp();
     }
 
     void Update()
@@ -33,11 +41,24 @@ public class PlayerMove : MonoBehaviour
             Flip();
         else if (isFacingRight && horizontal < 0f)
             Flip();
-		// Jump
+        // Jump
         if (Input.GetButtonDown("Jump") && (IsGrounded() || IsTouchingWall()))
             animator.SetTrigger("Jump");
-        // check if landed after jump
+		if (inAir)
+			inAirAccumulatior += Time.deltaTime;
+        // Check if landed after jump'
         Landed();
+		if (showingText)
+		{
+			// Remove text when 2 seconds have passed
+			if (textAccumulatior > 2)
+			{
+				UiObject.SetActive(false);
+				showingText = false;
+				textAccumulatior = 0f;
+			}
+			textAccumulatior += Time.deltaTime;
+		}
     }
 
     private void FixedUpdate()
@@ -51,7 +72,7 @@ public class PlayerMove : MonoBehaviour
             // Max speed check
             else if (horizontal != 0 && Mathf.Abs(rb.velocity.x) < speed)
                 rb.velocity = new Vector2(rb.velocity.x + horizontal / airManouver, rb.velocity.y);
-        } 
+        }
         else
         {
             rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
@@ -59,17 +80,23 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
+	private void LevelUp()
+	{
+		level++;
+		UiObject.SetActive(true);
+		showingText = true;
+	}
+
     private void Landed()
     {
         if (inAir && IsGrounded())
         {
-            landingDelay--;
-            if (landingDelay == 0)
-            {
-                animator.SetTrigger("Landed");
+			if (inAirAccumulatior > 0.2)
+			{
+				animator.SetTrigger("Landed");
                 inAir = false;
-                landingDelay = 5;
-            }
+				inAirAccumulatior = 0f;
+			}
         }
     }
 
@@ -79,6 +106,7 @@ public class PlayerMove : MonoBehaviour
         animator.SetTrigger("Flying");
         inAir = true;
     }
+
     private bool IsGrounded()
     {
         cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center - new Vector3(0, capsuleCollider2D.bounds.extents.y + 0.05f, 0));
@@ -88,20 +116,20 @@ public class PlayerMove : MonoBehaviour
         return false;
     }
 
-	private bool IsTouchingWall()
-	{
-		// check left
-		cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center - new Vector3(capsuleCollider2D.bounds.extents.x + 0.05f, 0, 0));
+    private bool IsTouchingWall()
+    {
+        // Check left
+        cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center - new Vector3(capsuleCollider2D.bounds.extents.x + 0.05f, 0, 0));
         tile = map.GetTile(cellPosition);
         if (tile)
             return (true);
-		// check right
-		cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center + new Vector3(capsuleCollider2D.bounds.extents.x + 0.05f, 0, 0));
+        // Check right
+        cellPosition = map.WorldToCell(capsuleCollider2D.bounds.center + new Vector3(capsuleCollider2D.bounds.extents.x + 0.05f, 0, 0));
         tile = map.GetTile(cellPosition);
         if (tile)
             return (true);
         return false;
-	}
+    }
 
     private void Flip()
     {
