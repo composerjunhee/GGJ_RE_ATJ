@@ -26,6 +26,12 @@ public class TileManager : MonoBehaviour
 	public	GameObject	mineral;
 	public GameObject	water;
 	public GameObject	glue;
+	private	GameObject	player;
+	[SerializeField]
+	private float		enemyRange = 5.0f;
+	[SerializeField]
+	private	GameObject enemy;
+	private GameObject newEnemyBody;
 	private int GetWorldTiles () 
 	{
 		int i = 0;
@@ -44,19 +50,24 @@ public class TileManager : MonoBehaviour
 
 	private void	GetReward(Vector3Int gridPosition)
 	{
+		Vector3 spawnPosition;
+		spawnPosition.x = gridPosition.x + 0.5f;
+		spawnPosition.y = gridPosition.y + 0.5f;
+		spawnPosition.z = gridPosition.z;
 		int	rand = Random.Range(0, 99);
+		
 		if (rand < percent)
 		{
 			GameObject reward;
 			int	randItem = Random.Range(0,99);
 			if (randItem < 25)
-				reward = Instantiate(wood, gridPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(wood, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else if (randItem < 50)
-				reward = Instantiate(water, gridPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(water, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else if (randItem < 75)
-				reward = Instantiate(mineral, gridPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(mineral, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else
-				reward = Instantiate(water, gridPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(water, spawnPosition, Quaternion.Euler(0, 0, 0));
 		}
 	}
 
@@ -98,10 +109,15 @@ public class TileManager : MonoBehaviour
 	}
 	private void ShrinkTiles()
 	{
-		int	i  = Random.Range(0, totalTiles);
-		if (tiles.ContainsKey(i))
+		Vector3 playerPosition = player.transform.position;
+		playerPosition.x += Random.Range(-enemyRange, enemyRange);
+		playerPosition.y += Random.Range(-enemyRange, enemyRange);
+		Vector3Int r_pos = Vector3Int.RoundToInt(playerPosition);
+		bool contain = tiles.ContainsValue(r_pos);
+		
+		if (contain)
 		{
-			enemy1Place = tiles[i];
+			enemy1Place = r_pos;
 			originalTile = map.GetTile(enemy1Place);
 			if (map.HasTile(enemy1Place))
 				shaking = true;
@@ -111,6 +127,22 @@ public class TileManager : MonoBehaviour
 	private void Awake()
 	{
 		totalTiles = GetWorldTiles();
+		player = GameObject.FindGameObjectWithTag("Player");
+	}
+
+	private void	DestroyEnemy()
+	{
+		Destroy(newEnemyBody);
+	}
+
+	private void EnemyAnimation()
+	{
+		Vector3 pos = enemy1Place;
+		pos.x += 0.5f;
+		pos.y += 0.5f;
+		TransforTile(enemy1Place, 0);
+		map.SetTile(enemy1Place, anim_worm);
+		newEnemyBody = Instantiate(enemy, pos, Quaternion.Euler(0, 0, 0));
 	}
 
 	private void HandleShaking()
@@ -129,16 +161,15 @@ public class TileManager : MonoBehaviour
 		{
 			time += Time.deltaTime;
 			if (animating)
-			{
-				TransforTile(enemy1Place, 0);
-				map.SetTile(enemy1Place, anim_worm);
-			}
+				EnemyAnimation();
 			animating = false;
 		}
 		if (shaking && time >= anim_time)
 		{
 			RestoreTile(originalTile, enemy1Place);
 			time = 0;
+			if (shaking)
+				DestroyEnemy();
 			shaking = false;
 			animating = false;
 		}
