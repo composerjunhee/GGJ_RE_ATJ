@@ -15,6 +15,10 @@
 	private inventory inv;
 	GameObject slotPanel;
 	private GameObject tree;
+	private AudioSource audioSource;
+
+
+
 	private void Awake()
 	{
 		data = FindObjectOfType<PlayerData>();
@@ -22,6 +26,7 @@
 		GenerateFibo(10);
 		slotPanel = GameObject.Find("Panel");
 		tree = GameObject.FindGameObjectWithTag("Tree");
+		audioSource = GetComponent<AudioSource>();
 	}
 
      private void Start()
@@ -58,6 +63,10 @@
 			float	zoomY = tree.transform.localScale.y;
 			tree.transform.localScale = new Vector2(zoomX + 0.2f, zoomY + 0.2f);
 			tree.transform.position = new Vector2(tree.transform.position.x, y + 0.2f);
+			if (!audioSource)
+				Debug.Log("Audio source not available");
+			else
+				audioSource.Play();
 		}
 		data.items--;
 		inv.slots[i].isEmpty = true;
