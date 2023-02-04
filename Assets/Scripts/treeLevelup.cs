@@ -16,7 +16,9 @@
 	GameObject slotPanel;
 	private GameObject tree;
 	private AudioSource audioSource;
-
+	private bool treeAlive = true;
+	private float	time;
+	private	int		treeLifeTime;
 
 
 	private void Awake()
@@ -82,4 +84,9 @@
 				GiveMaterial(inv.slots[i].item, i);
 		}
 	}
- }
+
+	private void	Update()
+	{
+		time += Time.deltaTime;
+	}
+}
