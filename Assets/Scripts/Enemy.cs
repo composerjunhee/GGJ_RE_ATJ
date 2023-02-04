@@ -19,18 +19,10 @@ public class Enemy : MonoBehaviour
 
 	private void OnCollisionEnter2D(Collision2D col)
 	{
-		if (col.collider.name == "man")
+		if (col.collider.name == "player")
 		{
-			//Reduce the health of the player HEre!!!!!
 			hp.LooseHP(damage);
 			rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
-			//rb.AddForce(transform.right * -500.0f, ForceMode2D.Impulse);
 		}
 	}
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
