@@ -128,6 +128,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (inAir && IsGrounded())
         {
+            // Delay so landing animation doesn't trigger immediately
 			if (inAirAccumulatior > 0.2)
 			{
 				animator.SetTrigger("Landed");
@@ -142,9 +143,9 @@ public class PlayerMove : MonoBehaviour
     {
         if (treeLvlup.level == 1)
             wallJumpCount = 0;
-        if (treeLvlup.level == 2)
+        if (treeLvlup.level == 3)
             wallJumpCount = 1;
-        if (treeLvlup.level >= 3)
+        if (treeLvlup.level >= 5)
 			wallJumpCount = 9999;
     }
 
