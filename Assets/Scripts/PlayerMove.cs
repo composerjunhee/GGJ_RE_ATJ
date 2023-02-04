@@ -116,9 +116,11 @@ public class PlayerMove : MonoBehaviour
 	private void LevelUp()
 	{
 		LevelUpText.text = "Level Up!";
-        if (treeLvlup.level == 2)
-            LevelUpInfo.text = "Wall jump activated.";
         if (treeLvlup.level == 3)
+            LevelUpInfo.text = "Wall jump activated.";
+        if (treeLvlup.level == 5)
+            LevelUpInfo.text = "You can jump more";
+        if (treeLvlup.level == 7)
             LevelUpInfo.text = "Unlimited wall jump activated.";
         LevelUpText.enabled = true;
 		showingText = true;
@@ -145,7 +147,9 @@ public class PlayerMove : MonoBehaviour
             wallJumpCount = 0;
         if (treeLvlup.level == 3)
             wallJumpCount = 1;
-        if (treeLvlup.level >= 5)
+        if (treeLvlup.level == 5)
+            wallJumpCount = 2;        
+        if (treeLvlup.level >= 7)
 			wallJumpCount = 9999;
     }
 
