@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 	private Rigidbody2D rb;
 	private PlayerData hp;
 	[SerializeField]
-	private int	damage = 10;
+	private int	damage = 30;
     // Start is called before the first frame update
     void Start()
     {
