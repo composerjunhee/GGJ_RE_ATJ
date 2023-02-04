@@ -14,7 +14,7 @@ public class TileManager : MonoBehaviour
 	private TileBase	replaceTile;
 	private TileBase	originalTile;
 	[SerializeField]
-	private	TileBase	anim_worm;
+	private	List<TileBase>	anim_worm;
 	Vector3Int localPlace;
 	private Vector3Int enemy1Place;
 	private bool shaking = false;
@@ -143,13 +143,21 @@ public class TileManager : MonoBehaviour
 		Destroy(newEnemyBody);
 	}
 
+	public int GetWormAnim()
+	{
+		int i;
+
+		i = Random.Range(0, anim_worm.Count);
+		return (i);
+	}
+
 	private void EnemyAnimation()
 	{
 		Vector3 pos = enemy1Place;
 		pos.x += 0.5f;
 		pos.y += 0.5f;
 		TransforTile(enemy1Place, 0);
-		map.SetTile(enemy1Place, anim_worm);
+		map.SetTile(enemy1Place, anim_worm[GetWormAnim()]);
 		newEnemyBody = Instantiate(enemy, pos, Quaternion.Euler(0, 0, 0));
 	}
 
