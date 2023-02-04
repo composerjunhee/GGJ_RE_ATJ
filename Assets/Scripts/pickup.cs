@@ -6,10 +6,17 @@ public class pickup : MonoBehaviour
 {
     public GameObject slotItem;
 	private PlayerData data;
+	private AudioSource audioSource;
+	private GameObject player;
 
+	private void Awake()
+	{
+		player = GameObject.FindGameObjectWithTag("Player");
+	}
 	private void Start()
 	{
 		data = FindObjectOfType<PlayerData>();
+		audioSource = player.GetComponent<AudioSource>();
 	}
 
 	private string	GetItemName(string name)
@@ -37,6 +44,7 @@ public class pickup : MonoBehaviour
 					data.items++;
                     inven.slots[i].isEmpty = false;
 					inven.slots[i].item = GetItemName(this.gameObject.name);
+					audioSource.Play();
                     Destroy(this.gameObject);
                     break;
                 }
