@@ -7,8 +7,8 @@ public class PlayerMove : MonoBehaviour
 {
     private Rigidbody2D rb;
     private CapsuleCollider2D capsuleCollider2D;
+    private SpriteRenderer  spriteRenderer;
     private float horizontal;
-    private float vertical;
     public float speed = 7f;
     public float jumpingPower = 8f;
     private bool isFacingRight = true;
@@ -24,11 +24,13 @@ public class PlayerMove : MonoBehaviour
 	private float inAirAccumulatior = 0f;
 	private bool showingText = false;
 	// private treeLevelup treeLvlup;
+    public GameObject menuSet;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         UiObject.SetActive(false);
 		// treeLvlup = FindObjectOfType<treeLevelup>();
@@ -37,6 +39,15 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
+        //Sub menu
+        if (Input.GetButtonDown("Cancel"))
+        {
+            if (menuSet.activeSelf)
+                menuSet.SetActive(false);
+            else
+                menuSet.SetActive(true);
+        }
+        //Facing
         if (!isFacingRight && horizontal > 0f)
             Flip();
         else if (isFacingRight && horizontal < 0f)
@@ -131,12 +142,20 @@ public class PlayerMove : MonoBehaviour
         return false;
     }
 
+    public bool IsInAir()
+    {
+        return (inAir);
+    }
+
     private void Flip()
     {
+        spriteRenderer.flipX = isFacingRight;
         isFacingRight = !isFacingRight;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
+    }
+
+    public void GameExit()
+    {
+        Application.Quit();
     }
 }
 

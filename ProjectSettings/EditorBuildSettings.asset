@@ -17,16 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: d030c4eb9978d4fb9a00c7aa45a36803
-  - enabled: 1
-    path: Assets/Scenes/Select.unity
-    guid: 4d654e0bb800141b595e1a0a46f8d5b6
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/TeemuScene_old.unity
-    guid: eea4985ab26da44479d7e52d97a7845e
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}
