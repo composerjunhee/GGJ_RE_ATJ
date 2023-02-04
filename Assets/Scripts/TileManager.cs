@@ -65,7 +65,7 @@ public class TileManager : MonoBehaviour
 			if (randItem < 25)
 				reward = Instantiate(wood, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else if (randItem < 50)
-				reward = Instantiate(water, spawnPosition, Quaternion.Euler(0, 0, 0));
+				reward = Instantiate(glue, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else if (randItem < 75)
 				reward = Instantiate(mineral, spawnPosition, Quaternion.Euler(0, 0, 0));
 			else
@@ -180,8 +180,6 @@ public class TileManager : MonoBehaviour
 
 	private void	Update()
 	{
-		//if (Input.GetKeyDown(KeyCode.H))
-		//	ThrowBomb();
 		HandleShaking();
 	}
 }

@@ -8,9 +8,9 @@ public class inventory : MonoBehaviour
     private int maxSlot = 4;
     public GameObject slotPrefab;
 
-    private void Start()
-    {
-        GameObject slotPanel = GameObject.Find("Panel");
+	public void	InventoryCreate()
+	{
+		GameObject slotPanel = GameObject.Find("Panel");
 
         for (int i = 0; i < maxSlot; i++)
         {
@@ -21,5 +21,9 @@ public class inventory : MonoBehaviour
             slot.slotObj = go;
             slots.Add(slot);
         }
+	}
+    private void Start()
+    {
+        InventoryCreate();
     }
 }
