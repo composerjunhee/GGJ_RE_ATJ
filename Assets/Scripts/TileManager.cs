@@ -33,7 +33,7 @@ public class TileManager : MonoBehaviour
 	private	GameObject enemy;
 	private GameObject newEnemyBody;
 	private PlayerData data;
-
+	private AudioSource audioSource;
 	private int GetWorldTiles () 
 	{
 		int i = 0;
@@ -89,6 +89,10 @@ public class TileManager : MonoBehaviour
 		{
 			strengthTiles[gridPosition]--;
 		}
+		if (!audioSource)
+			Debug.Log("Audio source from mining not available");
+		else
+			audioSource.Play();
 	}
 
 	private void	RestoreTile(TileBase tile, Vector3Int pos)
@@ -131,6 +135,7 @@ public class TileManager : MonoBehaviour
 		totalTiles = GetWorldTiles();
 		player = GameObject.FindGameObjectWithTag("Player");
 		data = FindObjectOfType<PlayerData>();
+		audioSource = GetComponent<AudioSource>();
 	}
 
 	private void	DestroyEnemy()
