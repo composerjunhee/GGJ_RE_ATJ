@@ -14,12 +14,14 @@
 	private PlayerData data;
 	private inventory inv;
 	GameObject slotPanel;
+	private GameObject tree;
 	private void Awake()
 	{
 		data = FindObjectOfType<PlayerData>();
 		inv = FindObjectOfType<inventory>();
 		GenerateFibo(10);
 		slotPanel = GameObject.Find("Panel");
+		tree = GameObject.FindGameObjectWithTag("Tree");
 	}
 
      private void Start()
@@ -51,6 +53,11 @@
 		{
 			level++;
 			waterCount = glueCount = rootCount = mineralCount = 0;
+			float	y = tree.transform.position.y;
+			float	zoomX = tree.transform.localScale.x;
+			float	zoomY = tree.transform.localScale.y;
+			tree.transform.localScale = new Vector2(zoomX + 0.2f, zoomY + 0.2f);
+			tree.transform.position = new Vector2(tree.transform.position.x, y + 0.2f);
 		}
 		data.items--;
 		inv.slots[i].isEmpty = true;
