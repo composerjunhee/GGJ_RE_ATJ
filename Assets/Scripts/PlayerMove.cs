@@ -18,13 +18,15 @@ public class PlayerMove : MonoBehaviour
     private Animator animator;
     private bool inAir = false;
     public float airManouver = 6;
-    public GameObject UiObject;
-    public int level = 1;
+    public TMPro.TextMeshProUGUI LevelUpText;
+    public TMPro.TextMeshProUGUI LevelUpInfo;
 	private float textAccumulatior = 0f;
 	private float inAirAccumulatior = 0f;
 	private bool showingText = false;
-	// private treeLevelup treeLvlup;
+	private treeLevelup treeLvlup;
+    private int         prevTreeLvl = 1;
     public GameObject menuSet;
+    private int wallJumpCount = 0;
 
     void Start()
     {
@@ -32,9 +34,12 @@ public class PlayerMove : MonoBehaviour
         capsuleCollider2D = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
-        UiObject.SetActive(false);
-		// treeLvlup = FindObjectOfType<treeLevelup>();
-		LevelUp();
+        LevelUpText.enabled = false;
+    }
+
+    void Awake()
+    {
+        treeLvlup = FindObjectOfType<treeLevelup>();
     }
 
     void Update()
@@ -53,18 +58,24 @@ public class PlayerMove : MonoBehaviour
         else if (isFacingRight && horizontal < 0f)
             Flip();
         // Jump
-        if (Input.GetButtonDown("Jump") && (IsGrounded() || IsTouchingWall()))
+        if (Input.GetButtonDown("Jump") && (IsGrounded() || (IsTouchingWall() && wallJumpCount > 0)))
             animator.SetTrigger("Jump");
 		if (inAir)
 			inAirAccumulatior += Time.deltaTime;
         // Check if landed after jump'
         Landed();
+        if (treeLvlup.level > prevTreeLvl)
+        {
+            prevTreeLvl = treeLvlup.level;
+            LevelUp();
+        }
 		if (showingText)
 		{
-			// Remove text when 2 seconds have passed
-			if (textAccumulatior > 2)
+			// Remove text when 3 seconds have passed
+			if (textAccumulatior > 3)
 			{
-				UiObject.SetActive(false);
+                LevelUpText.enabled = false;
+				LevelUpInfo.text = "";
 				showingText = false;
 				textAccumulatior = 0f;
 			}
@@ -93,8 +104,12 @@ public class PlayerMove : MonoBehaviour
 
 	private void LevelUp()
 	{
-		level++;
-		UiObject.SetActive(true);
+		LevelUpText.text = "Level Up!";
+        if (treeLvlup.level == 2)
+            LevelUpInfo.text = "Wall jump activated.";
+        if (treeLvlup.level == 3)
+            LevelUpInfo.text = "Unlimited wall jump activated.";
+        LevelUpText.enabled = true;
 		showingText = true;
 	}
 
@@ -107,12 +122,25 @@ public class PlayerMove : MonoBehaviour
 				animator.SetTrigger("Landed");
                 inAir = false;
 				inAirAccumulatior = 0f;
+                ResetWallJumpCount();
 			}
         }
     }
 
+    private void ResetWallJumpCount()
+    {
+        if (treeLvlup.level == 1)
+            wallJumpCount = 0;
+        if (treeLvlup.level == 2)
+            wallJumpCount = 1;
+        if (treeLvlup.level >= 3)
+			wallJumpCount = 9999;
+    }
+
     private void Jumped()
     {
+        if (!IsGrounded() && IsTouchingWall())
+            wallJumpCount += -1;
         rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         animator.SetTrigger("Flying");
         inAir = true;
