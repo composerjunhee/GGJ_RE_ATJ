@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
 	private treeLevelup treeLvlup;
     private int         prevTreeLvl = 1;
     public GameObject menuSet;
+    public GameObject treeMenu;
     private int wallJumpCount = 0;
 
     void Start()
@@ -43,7 +44,17 @@ public class PlayerMove : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        //Tree Menu
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            treeMenu.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            treeMenu.SetActive(false);
+        }
+
         //Sub menu
         if (Input.GetButtonDown("Cancel"))
         {
