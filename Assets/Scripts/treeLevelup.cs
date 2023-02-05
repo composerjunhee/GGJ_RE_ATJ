@@ -84,19 +84,19 @@
 	private int	GetTreeLifetime(int level)
 	{
 		if (level < 2)
-			return (65);
+			return (90);
 		else if (level < 3)
-			return (80);
-		else if (level < 4)
 			return (100);
+		else if (level < 4)
+			return (130);
 		else if (level < 5)
-			return (115);
+			return (170);
 		else if (level < 6)
-			return (180);
+			return (220);
 		else if (level < 7)
-			return (240);
-		else
 			return (300);
+		else
+			return (400);
 	}
 
 	private void	TreeLife()
