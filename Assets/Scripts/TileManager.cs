@@ -31,9 +31,8 @@ public class TileManager : MonoBehaviour
 	private	GameObject enemy;
 	private GameObject newEnemyBody;
 	private PlayerData data;
-	private AudioSource audioSource;
+	private AudioSource[] audioSource;
 	private treeLevelup treeInfo;
-
 
 	private int GetWorldTiles () 
 	{
@@ -90,10 +89,10 @@ public class TileManager : MonoBehaviour
 		{
 			strengthTiles[gridPosition]--;
 		}
-		if (!audioSource)
+		if (!audioSource[0])
 			Debug.Log("Audio source from mining not available");
 		else
-			audioSource.Play();
+			audioSource[0].Play();
 	}
 
 	private void	RestoreTile(TileBase tile, Vector3Int pos)
@@ -130,30 +129,13 @@ public class TileManager : MonoBehaviour
 			range = 3.0f;
 		return (range);
 	}
-	private void ShrinkTiles()
-	{
-		float range = GetEnemyRange();
-		Vector3 playerPosition = player.transform.position;
-		playerPosition.x += Random.Range(-range, range + 1);
-		playerPosition.y += Random.Range(-range, range + 1);
-		Vector3Int r_pos = Vector3Int.RoundToInt(playerPosition);
-		bool contain = tiles.ContainsValue(r_pos);
-		
-		if (contain)
-		{
-			enemy1Place = r_pos;
-			originalTile = map.GetTile(enemy1Place);
-			if (map.HasTile(enemy1Place))
-				shaking = true;
-		}
-	}
 
 	private void Awake()
 	{
 		totalTiles = GetWorldTiles();
 		player = GameObject.FindGameObjectWithTag("Player");
 		data = FindObjectOfType<PlayerData>();
-		audioSource = GetComponent<AudioSource>();
+		audioSource = GetComponents<AudioSource>();
 		treeInfo = FindObjectOfType<treeLevelup>();
 	}
 
@@ -178,6 +160,27 @@ public class TileManager : MonoBehaviour
 		TransforTile(enemy1Place, 0);
 		map.SetTile(enemy1Place, anim_worm[GetWormAnim()]);
 		newEnemyBody = Instantiate(enemy, pos, Quaternion.Euler(0, 0, 0));
+	}
+
+	private void ShrinkTiles()
+	{
+		float range = GetEnemyRange();
+		Vector3 playerPosition = player.transform.position;
+		playerPosition.x += Random.Range(-range, range + 1);
+		playerPosition.y += Random.Range(-range, range + 1);
+		Vector3Int r_pos = Vector3Int.RoundToInt(playerPosition);
+		bool contain = tiles.ContainsValue(r_pos);
+		
+		if (contain)
+		{
+			enemy1Place = r_pos;
+			originalTile = map.GetTile(enemy1Place);
+			if (map.HasTile(enemy1Place))
+			{
+				shaking = true;
+				audioSource[1].Play();
+			}
+		}
 	}
 
 	private void HandleShaking()

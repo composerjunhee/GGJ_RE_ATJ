@@ -9,7 +9,15 @@ public class Enemy : MonoBehaviour
 	private PlayerData hp;
 	[SerializeField]
 	private int	damage = 60;
+	private GameObject AD;
+	private AudioSource audioDamage;
     // Start is called before the first frame update
+
+	private void	Awake()
+	{
+		AD = GameObject.FindGameObjectWithTag("AudioDamage");
+		audioDamage = AD.GetComponent<AudioSource>();
+	}
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -22,6 +30,7 @@ public class Enemy : MonoBehaviour
 		if (col.collider.name == "player")
 		{
 			hp.LooseHP(damage);
+			audioDamage.Play();
 			rb.AddForce(transform.up * 5.0f, ForceMode2D.Impulse);
 		}
 	}

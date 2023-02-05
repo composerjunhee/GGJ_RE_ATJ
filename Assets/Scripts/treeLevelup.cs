@@ -15,7 +15,7 @@
 	private inventory inv;
 	GameObject slotPanel;
 	private GameObject tree;
-	private AudioSource audioSource;
+	public List<AudioSource> audioSource;
 	private bool treeAlive = true;
 	public float	time;
 	public	int		treeLifeTime;
@@ -28,7 +28,7 @@
 		GenerateFibo(10);
 		slotPanel = GameObject.Find("Panel");
 		tree = GameObject.FindGameObjectWithTag("Tree");
-		audioSource = GetComponent<AudioSource>();
+		//audioSource = GetComponents<AudioSource>();
 	}
 
      private void Start()
@@ -59,7 +59,6 @@
 
 		if (waterCount >= fibo[level - 1] && glueCount >= fibo[level - 1] && rootCount >= fibo[level - 1] && mineralCount >= fibo[level - 1])
 		{
-			Debug.Log("Entered HEre!");
 			level++;
 			waterCount = glueCount = rootCount = mineralCount = 0;
 			float	y = tree.transform.position.y;
@@ -68,10 +67,13 @@
 			time = 0;
 			tree.transform.localScale = new Vector2(zoomX + 0.2f, zoomY + 0.2f);
 			tree.transform.position = new Vector2(tree.transform.position.x, y + 0.2f);
-			if (!audioSource)
+			if (!audioSource[0])
 				Debug.Log("Audio source not available");
 			else
-				audioSource.Play();
+			{
+				Debug.Log("Playing next level sound");
+				audioSource[0].Play();
+			}
 		}
 		data.items--;
 		inv.slots[i].isEmpty = true;
@@ -111,6 +113,11 @@
 		{
 			for(int i = 0; i < inv.slots.Count; i++)
 				GiveMaterial(inv.slots[i].item, i);
+			if (waterCount < fibo[level - 1] || glueCount < fibo[level - 1] || rootCount <fibo[level - 1] || mineralCount < fibo[level - 1])
+			{
+				Debug.Log("Playing deliver sound");
+				audioSource[1].Play();
+			}
 		}
 	}
 
