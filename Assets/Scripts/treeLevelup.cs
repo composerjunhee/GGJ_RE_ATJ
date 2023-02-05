@@ -10,7 +10,7 @@
 	public int	mineralCount;
 	public int level;
 
-	private int[] fibo;
+	public int[] fibo;
 	private PlayerData data;
 	private inventory inv;
 	GameObject slotPanel;
