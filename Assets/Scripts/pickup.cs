@@ -21,7 +21,6 @@ public class pickup : MonoBehaviour
 
 	private string	GetItemName(string name)
 	{
-		Debug.Log("picked: " + name);
 		if (name == "water" || name == "water(Clone)")
 			return ("water");
 		else if (name == "glue" || name == "glue(Clone)")

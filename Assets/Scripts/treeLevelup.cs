@@ -1,7 +1,7 @@
  using System.Collections;
  using System.Collections.Generic;
  using UnityEngine;
-
+ using UnityEngine.SceneManagement;
  public class treeLevelup : MonoBehaviour
  {
 	public int waterCount;
@@ -17,8 +17,8 @@
 	private GameObject tree;
 	private AudioSource audioSource;
 	private bool treeAlive = true;
-	private float	time;
-	private	int		treeLifeTime;
+	public float	time;
+	public	int		treeLifeTime;
 
 
 	private void Awake()
@@ -47,6 +47,7 @@
 	}
 	public void GiveMaterial(string material, int i)
 	{
+		Debug.Log("returned: " + material);
 		if (material == "water" || material == "water(Clone)")
 			waterCount++;
 		else if (material == "glue" || material == "glue(Clone)")
@@ -58,11 +59,13 @@
 
 		if (waterCount >= fibo[level - 1] && glueCount >= fibo[level - 1] && rootCount >= fibo[level - 1] && mineralCount >= fibo[level - 1])
 		{
+			Debug.Log("Entered HEre!");
 			level++;
 			waterCount = glueCount = rootCount = mineralCount = 0;
 			float	y = tree.transform.position.y;
 			float	zoomX = tree.transform.localScale.x;
 			float	zoomY = tree.transform.localScale.y;
+			time = 0;
 			tree.transform.localScale = new Vector2(zoomX + 0.2f, zoomY + 0.2f);
 			tree.transform.position = new Vector2(tree.transform.position.x, y + 0.2f);
 			if (!audioSource)
@@ -76,6 +79,32 @@
 		Destroy(inv.slots[i].itemObj);
 	}
 
+	private int	GetTreeLifetime(int level)
+	{
+		if (level < 2)
+			return (65);
+		else if (level < 3)
+			return (80);
+		else if (level < 4)
+			return (100);
+		else if (level < 5)
+			return (115);
+		else if (level < 6)
+			return (180);
+		else if (level < 7)
+			return (240);
+		else
+			return (300);
+	}
+
+	private void	TreeLife()
+	{
+		time += Time.deltaTime;
+		treeLifeTime = GetTreeLifetime(level);
+		if (time > treeLifeTime)
+			SceneManager.LoadScene("GameOver");
+	}
+
 	private void OnTriggerEnter2D(Collider2D col)
 	{
 		if (data.items == 4 && col.name == "player")
@@ -87,6 +116,6 @@
 
 	private void	Update()
 	{
-		time += Time.deltaTime;
+		TreeLife();
 	}
 }
