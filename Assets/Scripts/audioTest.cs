@@ -5,9 +5,12 @@ using UnityEngine;
 public class audioTest : MonoBehaviour
 {
     private AudioSource theAudio;
+    private int time = 5;
+    private float timer = 0.0f;
+    private bool played = false;
 
     [SerializeField] private AudioClip[] clip;
-    // Start is called before the first frame update
+
     void Start()
     {
         theAudio = GetComponent<AudioSource>();
@@ -15,9 +18,23 @@ public class audioTest : MonoBehaviour
 
     public void PlaySE()
     {
-        int _temp = Random.Range(0, 6);
+        if (timer > time)
+        {
+            int _temp = Random.Range(0, 5);
+            theAudio.clip = clip[_temp];
+            theAudio.Play();
+            timer = 0.0f;
+            played = true;
+        }
+    }
 
-        theAudio.clip = clip[_temp];
-        theAudio.Play();
+    private void Update() 
+    {
+        timer += Time.deltaTime;
+
+        if (!played)
+        {
+            PlaySE();
+        }
     }
 }
