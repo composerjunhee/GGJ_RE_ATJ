@@ -150,6 +150,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3785587457560733785, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
+      propertyPath: m_text
+      value: HP
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785587457560733785, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785587457560733785, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7889461233274276689, guid: 26ba1486a68064649b8df1c2664093f5, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -336,6 +348,10 @@ PrefabInstance:
       propertyPath: mineral
       value: 
       objectReference: {fileID: 8198287761460760751, guid: d7e4fee60f8c5434baa59ccb9daac1ad, type: 3}
+    - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
+      propertyPath: percent
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
       propertyPath: enemyBody
       value: 
@@ -19490,12 +19506,40 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 801097689}
     - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1870751620}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ClickSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: GameExit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayerMove, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4743519962930676751, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5223319009409183058, guid: 720867981abdb4b419f4b025136e22d8, type: 3}
       propertyPath: m_Name
@@ -19527,6 +19571,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 8864238502372234391, guid: b4113fef92c88c9428c31c318109e7f1, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8864238503607104849, guid: b4113fef92c88c9428c31c318109e7f1, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -19589,11 +19637,11 @@ PrefabInstance:
       objectReference: {fileID: 531253610}
     - target: {fileID: 8864238503799967835, guid: b4113fef92c88c9428c31c318109e7f1, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -350
+      value: -286.3
       objectReference: {fileID: 0}
     - target: {fileID: 8864238503799967835, guid: b4113fef92c88c9428c31c318109e7f1, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 250
+      value: 179.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4113fef92c88c9428c31c318109e7f1, type: 3}

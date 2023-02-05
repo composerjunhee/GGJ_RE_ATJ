@@ -40,7 +40,7 @@ public class MovingEnemy : MonoBehaviour
                 if (delayDmg(0.1f))
                     hp.LooseHP(20);
             }
-            Move(transform.position, new Vector2 (target.bounds.center.x, target.bounds.center.y), step * 1.2f);
+            Move(transform.position, new Vector2 (target.bounds.center.x, target.bounds.center.y), step * 0.8f);
         }
         else
         {
