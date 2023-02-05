@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
 	private treeLevelup treeLvlup;
     private int         prevTreeLvl = 1;
     public GameObject menuSet;
+    public GameObject treeMenu;
     private int wallJumpCount = 0;
 
     void Start()
@@ -43,7 +44,17 @@ public class PlayerMove : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        //Tree Menu
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            treeMenu.SetActive(true);
+        }
+        if (Input.GetKeyUp(KeyCode.T))
+        {
+            treeMenu.SetActive(false);
+        }
+
         //Sub menu
         if (Input.GetButtonDown("Cancel"))
         {
@@ -105,9 +116,11 @@ public class PlayerMove : MonoBehaviour
 	private void LevelUp()
 	{
 		LevelUpText.text = "Level Up!";
-        if (treeLvlup.level == 2)
-            LevelUpInfo.text = "Wall jump activated.";
         if (treeLvlup.level == 3)
+            LevelUpInfo.text = "Wall jump activated.";
+        if (treeLvlup.level == 5)
+            LevelUpInfo.text = "You can jump more";
+        if (treeLvlup.level == 7)
             LevelUpInfo.text = "Unlimited wall jump activated.";
         LevelUpText.enabled = true;
 		showingText = true;
@@ -117,6 +130,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (inAir && IsGrounded())
         {
+            // Delay so landing animation doesn't trigger immediately
 			if (inAirAccumulatior > 0.2)
 			{
 				animator.SetTrigger("Landed");
@@ -129,11 +143,13 @@ public class PlayerMove : MonoBehaviour
 
     private void ResetWallJumpCount()
     {
-        if (treeLvlup.level == 1)
+        if (treeLvlup.level >= 1 || treeLvlup.level < 3)
             wallJumpCount = 0;
-        if (treeLvlup.level == 2)
+        if (treeLvlup.level >= 3 || treeLvlup.level < 5)
             wallJumpCount = 1;
-        if (treeLvlup.level >= 3)
+        if (treeLvlup.level >= 5 || treeLvlup.level < 7)
+            wallJumpCount = 2;        
+        if (treeLvlup.level >= 7)
 			wallJumpCount = 9999;
     }
 
