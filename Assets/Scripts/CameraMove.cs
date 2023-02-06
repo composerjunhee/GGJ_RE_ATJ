@@ -10,6 +10,7 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
         originalCamera = this.transform.position;
+		originalCamera.x = followTransform.position.x;
     }
 
     // Update is called once per frame
@@ -21,6 +22,7 @@ public class CameraMove : MonoBehaviour
 	void LateUpdate()
 	{
         Vector3 currentPos = this.transform.position;
+		originalCamera.x = followTransform.position.x;
         Vector3 endPos = new Vector3(followTransform.position.x, followTransform.position.y, this.transform.position.z);
         if (followTransform.position.y < -5)
 		{

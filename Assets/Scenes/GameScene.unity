@@ -350,7 +350,7 @@ PrefabInstance:
       objectReference: {fileID: 8198287761460760751, guid: d7e4fee60f8c5434baa59ccb9daac1ad, type: 3}
     - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
       propertyPath: percent
-      value: 40
+      value: 70
       objectReference: {fileID: 0}
     - target: {fileID: 8892866142041058348, guid: 78c813f45ec0d364c87fc712dd525238, type: 3}
       propertyPath: enemyBody
