@@ -5,9 +5,9 @@ using UnityEngine;
 public class audioTest : MonoBehaviour
 {
     private AudioSource theAudio;
-    private int time = 5;
-    private float timer = 0.0f;
-    private bool played = false;
+    [SerializeField]private int time = 5;
+    [SerializeField]private float timer = 0.0f;
+    [SerializeField]private bool played = false;
 
     [SerializeField] private AudioClip[] clip;
 
@@ -28,13 +28,14 @@ public class audioTest : MonoBehaviour
         }
     }
 
-    private void Update() 
+    private void Update()
     {
         timer += Time.deltaTime;
 
         if (!played)
         {
             PlaySE();
+            played = false;
         }
     }
 }

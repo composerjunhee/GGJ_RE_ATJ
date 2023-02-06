@@ -28,6 +28,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject menuSet;
     public GameObject treeMenu;
     private int wallJumpCount = 0;
+    public List<AudioSource> audioSource;
 
     void Start()
     {
@@ -44,7 +45,7 @@ public class PlayerMove : MonoBehaviour
     }
 
     void Update()
-    {   
+    {
         //Tree Menu
         if (Input.GetKeyDown(KeyCode.T))
         {
@@ -70,7 +71,10 @@ public class PlayerMove : MonoBehaviour
             Flip();
         // Jump
         if (Input.GetButtonDown("Jump") && (IsGrounded() || (IsTouchingWall() && wallJumpCount > 0)))
+        {
             animator.SetTrigger("Jump");
+            audioSource[0].Play();
+        }
 		if (inAir)
 			inAirAccumulatior += Time.deltaTime;
         // Check if landed after jump'
@@ -134,6 +138,7 @@ public class PlayerMove : MonoBehaviour
 			if (inAirAccumulatior > 0.2)
 			{
 				animator.SetTrigger("Landed");
+                audioSource[1].Play();
                 inAir = false;
 				inAirAccumulatior = 0f;
                 ResetWallJumpCount();
@@ -148,7 +153,7 @@ public class PlayerMove : MonoBehaviour
         if (treeLvlup.level >= 3 || treeLvlup.level < 5)
             wallJumpCount = 1;
         if (treeLvlup.level >= 5 || treeLvlup.level < 7)
-            wallJumpCount = 2;        
+            wallJumpCount = 2;
         if (treeLvlup.level >= 7)
 			wallJumpCount = 9999;
     }
