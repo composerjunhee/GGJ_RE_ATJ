@@ -148,11 +148,11 @@ public class PlayerMove : MonoBehaviour
 
     private void ResetWallJumpCount()
     {
-        if (treeLvlup.level >= 1 || treeLvlup.level < 3)
+        if (treeLvlup.level >= 1 && treeLvlup.level < 3)
             wallJumpCount = 0;
-        if (treeLvlup.level >= 3 || treeLvlup.level < 5)
+        if (treeLvlup.level >= 3 && treeLvlup.level < 5)
             wallJumpCount = 1;
-        if (treeLvlup.level >= 5 || treeLvlup.level < 7)
+        if (treeLvlup.level >= 5 && treeLvlup.level < 7)
             wallJumpCount = 2;
         if (treeLvlup.level >= 7)
 			wallJumpCount = 9999;
